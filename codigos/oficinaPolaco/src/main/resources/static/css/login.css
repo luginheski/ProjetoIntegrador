@@ -19,16 +19,6 @@
     height: 100%;
 }
 
-.logo{
-    background-color: dodgerblue;
-    border-radius: 10px;
-    opacity: 0.8;
-    width: auto;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin-top: 10px;
-}
-
 h1{
     color: white;
     font-family: monospace;
@@ -39,6 +29,17 @@ h1{
         -2px -2px 0 #000,
         2px -2px 0 #000;
 }
+
+div.logo{
+    background: rgba(30,144,255,0.8);
+    border-radius: 10px;
+    width: auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+}
+
+
 h6{
     color: red;
     float: right;
@@ -52,7 +53,7 @@ h6{
     width: 50px;
     border-radius: 15px;
     margin-left: 5px;
-    opacity: 1.0;
+    
 }
 
 .img-direita{
@@ -63,9 +64,8 @@ h6{
 }
 
 .login{
-    background-color: dodgerblue;
+    background-color: rgba(30,144,255, 0.8);
     border-radius: 10px;
-    opacity: 0.8;
     width: 500px;
     height: 500px;
     margin-top: 40px;
