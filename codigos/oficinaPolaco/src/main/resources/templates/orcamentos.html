@@ -1,23 +1,42 @@
 <!DOCTYPE html>
 
 <html xmlns="w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <title>Orçamentos</title>
-        <link rel="icon" href="../static/imagens/manutencao.png" alt=""/>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="../static/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="../static/css/login.css" rel="stylesheet" type="text/css"/>
-    </head>
-    <body>
-        <div class="principal">
-            <div class="logo">
-                <h1>OFICINA DO POLACO
-                    <img src="../static/imagens/mecanico.gif" alt="" class="img-esquerda"/>
-                    <img src="../static/imagens/motor.gif" alt="" class="img-direita"/>
-                </h1>
-            </div>
-            
-        </div>
-    </body>
+     <head>
+          <title>Orçamentos</title>
+          <link rel="icon" href="../static/imagens/manutencao.png" alt=""/>
+          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <link href="../static/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+          <link href="../static/css/login.css" rel="stylesheet" type="text/css"/>
+          <link href="../static/css/orcamentos.css" rel="stylesheet" type="text/css"/>
+          <script src="../static/bootstrap/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+     </head>
+     <body>
+          <div class="principal">
+               <div class="logo">
+                    <h1>OFICINA DO POLACO
+                         <img src="../static/imagens/mecanico.gif" alt="" class="img-esquerda"/>
+                         <img src="../static/imagens/motor.gif" alt="" class="img-direita"/>
+                    </h1>
+               </div>
+               <div class="container mt-3">
+                    <div class="input-group mt-3 mb-3">
+                         <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+                              Cadastros
+                         </button>
+                         <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="#">Clientes</a></li>
+                              <li><a class="dropdown-item" href="#">Veículos</a></li>
+                         </ul>
+                         <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+                              Relatórios
+                         </button>
+                         <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="#">Orde de Serviço</a></li>
+                              <li><a class="dropdown-item" href="#">Vendas</a></li>
+                         </ul>
+                    </div>
+               </div>
+          </div>
+     </body>
 </html>
