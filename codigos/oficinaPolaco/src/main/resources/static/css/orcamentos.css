@@ -1,0 +1,18 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 20% 45% 35%;
+    gap: 5px;
+}
+
+.grid-container > div {
+    background: rgba(30,144,255,0.8);
+    padding: auto 0;
+    font-size: 30px;
+    border-radius: 5px;
+}
+
+.table-edit {
+    font-size: 18px;
+    background: rgba(255,255,255,0.8);
+    border-radius: 10px;
+}
