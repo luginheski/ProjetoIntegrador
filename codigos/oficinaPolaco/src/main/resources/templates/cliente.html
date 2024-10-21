@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+
+<html xmlns="w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+     <head>
+          <title>Cadastro cliente</title>
+          <link rel="icon" href="../imagens/cliente.png" alt=""/>
+          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+          <link href="../css/login.css" rel="stylesheet" type="text/css"/>
+          <link href="../css/orcamentos.css" rel="stylesheet" type="text/css"/>
+          <link href="../css/cliente.css" rel="stylesheet" type="text/css"/>
+          <script src="../bootstrap/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+     </head>
+     <body>
+          <div class="principal">
+               <div class="logo">
+                    <h1>OFICINA DO POLACO
+                         <img src="../imagens/mecanico.gif" alt="" class="img-esquerda"/>
+                         <img src="../imagens/motor.gif" alt="" class="img-direita"/>
+                    </h1>
+               </div>
+               <div class="grid-container-cliente">
+                    <div>
+                         <div>
+                              <h5>Cadastro de clientes:</h5>
+                         </div>
+                         <nav
+                             <p><a type="submit" class="btn btn-primary button">Consultar / Placa</a></p>
+                              <p><a type="button" class="btn btn-primary button">Criar Ordem de Serviço</a></p>
+                              <p><a type="button" class="btn btn-primary button">Limpar</a></p>
+                              <p><a type="button" class="btn btn-primary button">Excluir</a></p>
+                              <p><a type="button" class="btn btn-primary button" th:href="@{/orcamentos}" >Voltar</a></p>
+                         </nav>
+                    </div>
+                    <div>
+                         <h5>Dados pessoais:</h5>
+                         <hr>
+                         <form>
+                              <div class="container mt-3">
+                                   <div class="row">
+                                        <div class="col-sm-6">
+                                             <h5>Nome:</h5>
+                                             <input type="text" class="descricao">
+                                             <h5>CPF:</h5>
+                                             <input type="text" class="descricao">
+                                        </div>
+                                        <div class="col-sm-6">
+                                             <h5>RG:</h5>
+                                             <input type="text" class="descricao">
+                                             <h5>Telefone:</h5>
+                                             <input type="text" class="descricao">
+                                        </div>
+                                   </div>
+                              </div>
+                         </form>
+                         <h5>Endereço:</h5>
+                         <hr>
+                         <form>
+                              <div class="container mt-3">
+                                   <div class="row">
+                                        <div class="col-sm-6">
+                                             <h5>Rua:</h5>
+                                             <input type="text" class="descricao">
+                                             <h5>CEP:</h5>
+                                             <input type="text" class="descricao">
+                                             <h5>Cidade:</h5>
+                                             <input type="text" class="descricao">
+                                        </div>
+                                        <div class="col-sm-6">
+                                             <h5>Nº:</h5>
+                                             <input type="text" class="descricao">
+                                             <h5>Bairro:</h5>
+                                             <input type="text" class="descricao">
+                                             <h5>Estado:</h5>
+                                             <input type="text" class="descricao">
+                                        </div>
+                                   </div>
+                              </div>
+                         </form>
+                    </div>
+
+               </div>
+               <div class="rodape">
+                    <div style="overflow-y: scroll; max-height: 230px;" class="container mt-3">
+                              <table class="table table-edit"
+                                     <thead>
+                                        <tr>
+                                             <th>Nome</th>
+                                             <th>CPF</th>
+                                             <th>Telefone</th>
+                                             <th>Rua</th>
+                                             <th>Nº</th>
+                                             <th>Cep</th>
+                                             <th>Cidade</th>
+                                             <th>Estado</th>
+                                        </tr>
+                                   </thead>
+                                   <tbody>
+                                        <tr>
+                                             <td>Paulo Freitas Amalio de Jesus</td>
+                                             <td>000.111.222-44</td>
+                                             <td>(41)98764-1234</td>
+                                             <td>Primeiro de abril</td>
+                                             <td>3223</td>
+                                             <td>80.500-999</td>
+                                             <td>Não me toque</td>
+                                             <td>RS</td>
+                                        </tr>
+                                        <tr>
+                                             <td>Silvia Amalio de Davi</td>
+                                             <td>000.111.222-44</td>
+                                             <td>(41)98764-1234</td>
+                                             <td>Segundo de abril</td>
+                                             <td>3223</td>
+                                             <td>80.500-999</td>
+                                             <td>Florianópolis</td>
+                                             <td>SC</td>
+                                        </tr>
+                                   </tbody>
+                              </table>
+                         </div>
+               </div>
+          </div>
+     </body>
+</html>

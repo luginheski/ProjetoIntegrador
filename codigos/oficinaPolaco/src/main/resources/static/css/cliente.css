@@ -1,0 +1,14 @@
+.grid-container-cliente{
+    display: grid;
+    grid-template-columns: 20% 80%;
+    gap: 5px;
+}
+
+.grid-container-cliente > div {
+    background: rgba(102,154,255,0.8);
+    padding: auto 0;
+    font-size: 30px;
+    border-radius: 5px;
+    margin-top: 20px;
+
+}

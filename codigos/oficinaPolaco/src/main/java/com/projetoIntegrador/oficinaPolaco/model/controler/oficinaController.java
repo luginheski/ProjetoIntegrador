@@ -15,6 +15,14 @@ public class oficinaController {
     public String mostraOS(){
         return "orcamentos";
     }
-
     
+    @GetMapping("/cliente")
+    public String mostraCliente(){
+        return "cliente";
+    }
+    
+    @GetMapping("/veiculo")
+    public String mostraVeiculo(){
+        return "veiculo";
+    }
 }

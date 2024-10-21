@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html xmlns="w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+     <head>
+          <title>Cadastro veiculo</title>
+          <link rel="icon" href="../imagens/veiculo.png" alt=""/>
+          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+          <link href="../css/login.css" rel="stylesheet" type="text/css"/>
+          <link href="../css/orcamentos.css" rel="stylesheet" type="text/css"/>
+          <link href="../css/cliente.css" rel="stylesheet" type="text/css"/>
+          <script src="../bootstrap/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+     </head>
+     <body>
+          <div class="principal">
+               <div class="logo">
+                    <h1>OFICINA DO POLACO
+                         <img src="../imagens/mecanico.gif" alt="" class="img-esquerda"/>
+                         <img src="../imagens/motor.gif" alt="" class="img-direita"/>
+                    </h1>
+               </div>
+               <div class="grid-container-cliente">
+                    <div>
+                         <div>
+                              <h5>Cadastro de clientes:</h5>
+                         </div>
+                         <nav
+                             <p><a type="submit" class="btn btn-primary button">Consultar / Placa</a></p>
+                              <p><a type="button" class="btn btn-primary button">Criar Ordem de Serviço</a></p>
+                              <p><a type="button" class="btn btn-primary button">Limpar</a></p>
+                              <p><a type="button" class="btn btn-primary button">Excluir</a></p>
+                              <p><a type="button" class="btn btn-primary button" th:href="@{/orcamentos}" >Voltar</a></p>
+                         </nav>
+                    </div>
+                    <div>
+                         <h5>Dados pessoais:</h5>
+                         <hr>
+                         <form>
+                              <div class="container mt-3">
+                                   <div class="row">
+                                        <div class="col-sm-6">
+                                             <h5>Nome:</h5>
+                                             <input type="text" class="descricao">
+                                        </div>
+                                        <div class="col-sm-6">
+                                             <h5>CPF:</h5>
+                                             <input type="text" class="descricao">
+                                        </div>
+                                   </div>
+                              </div>
+                         </form>
+                         <h5>Veiculo:</h5>
+                         <hr>
+                         <form>
+                              <div class="container mt-3">
+                                   <div class="row">
+                                        <div class="col-sm-6">
+                                             <h5>Fabricante:</h5>
+                                             <input type="text" class="descricao">
+                                             <h5>Ano fabricação:</h5>
+                                             <input type="text" class="descricao">
+                                             <h5>Placa:</h5>
+                                             <input type="text" class="descricao">
+                                        </div>
+                                        <div class="col-sm-6">
+                                             <h5>Modelo:</h5>
+                                             <input type="text" class="descricao">
+                                             <h5>Ano moelo:</h5>
+                                             <input type="text" class="descricao">
+                                             <h5>Hodometro / Km:</h5>
+                                             <input type="text" class="descricao">
+                                        </div>
+                                   </div>
+                              </div>
+                         </form>
+                    </div>
+
+               </div>
+               <div class="rodape">
+                    <div style="overflow-y: scroll; max-height: 230px;" class="container mt-3">
+                              <table class="table table-edit"
+                                     <thead>
+                                        <tr>
+                                             <th>Cliente</th>
+                                             <th>CPF</th>
+                                             <th>Fabricante</th>
+                                             <th>Modelo</th>
+                                             <th>Ano Fabricação</th>
+                                             <th>Ano Modelo</th>
+                                             <th>Hodometro/Km</th>
+                                        </tr>
+                                   </thead>
+                                   <tbody>
+                                        <tr>
+                                             <td>Silvia Amalio de Davi</td>
+                                             <td>000.111.222-44</td>
+                                             <td>FIAT</td>
+                                             <td>Uno</td>
+                                             <td>2012</td>
+                                             <td>2012</td>
+                                             <td>125000</td>
+                                        </tr>
+                                        <tr>
+                                             <td>Paulo Freitas Amalio de Jesus</td>
+                                             <td>000.111.222-44</td>
+                                             <td>VolksWagen</td>
+                                             <td>Parati</td>
+                                             <td>2018</td>
+                                             <td>2019</td>
+                                             <td>225000</td>
+                                        </tr>
+                                   </tbody>
+                              </table>
+                         </div>
+               </div>
+          </div>
+     </body>
+</html>
