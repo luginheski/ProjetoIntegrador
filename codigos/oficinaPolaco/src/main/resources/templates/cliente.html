@@ -26,8 +26,8 @@
                               <h5>Cadastro de clientes:</h5>
                          </div>
                          <nav
-                             <p><a type="submit" class="btn btn-primary button">Consultar / Placa</a></p>
-                              <p><a type="button" class="btn btn-primary button">Criar Ordem de Serviço</a></p>
+                             <p><a type="submit" class="btn btn-primary button">Consultar / CPF</a></p>
+                              <p><a type="button" class="btn btn-primary button">Salvar Novo</a></p>
                               <p><a type="button" class="btn btn-primary button">Limpar</a></p>
                               <p><a type="button" class="btn btn-primary button">Excluir</a></p>
                               <p><a type="button" class="btn btn-primary button" th:href="@{/orcamentos}" >Voltar</a></p>
@@ -36,44 +36,44 @@
                     <div>
                          <h5>Dados pessoais:</h5>
                          <hr>
-                         <form>
+                         <form th:action="@{/cadastroCliente}" method="POST" th:object="${clienteAdd}">
                               <div class="container mt-3">
                                    <div class="row">
                                         <div class="col-sm-6">
                                              <h5>Nome:</h5>
-                                             <input type="text" class="descricao">
+                                             <input type="text" class="descricao" th:field="${clienteAdd.nome}">
                                              <h5>CPF:</h5>
-                                             <input type="text" class="descricao">
+                                             <input type="text" class="descricao" th:field="${clienteAdd.cpf}">
                                         </div>
                                         <div class="col-sm-6">
                                              <h5>RG:</h5>
-                                             <input type="text" class="descricao">
+                                             <input type="text" class="descricao" th:field="${clienteAdd.rg}">
                                              <h5>Telefone:</h5>
-                                             <input type="text" class="descricao">
+                                             <input type="text" class="descricao" th:field="${clienteAdd.telefone}">
                                         </div>
                                    </div>
                               </div>
-                         </form>
+                         
                          <h5>Endereço:</h5>
                          <hr>
-                         <form>
+                         
                               <div class="container mt-3">
                                    <div class="row">
                                         <div class="col-sm-6">
                                              <h5>Rua:</h5>
-                                             <input type="text" class="descricao">
+                                             <input type="text" class="descricao" th:field="${clienteAdd.rua}">
                                              <h5>CEP:</h5>
-                                             <input type="text" class="descricao">
+                                             <input type="text" class="descricao" th:field="${clienteAdd.cep}">
                                              <h5>Cidade:</h5>
-                                             <input type="text" class="descricao">
+                                             <input type="text" class="descricao" th:field="${clienteAdd.cidade}">
                                         </div>
                                         <div class="col-sm-6">
                                              <h5>Nº:</h5>
-                                             <input type="text" class="descricao">
+                                             <input type="text" class="descricao" th:field="${clienteAdd.numero}">
                                              <h5>Bairro:</h5>
-                                             <input type="text" class="descricao">
+                                             <input type="text" class="descricao" th:field="${clienteAdd.bairro}">
                                              <h5>Estado:</h5>
-                                             <input type="text" class="descricao">
+                                             <input type="text" class="descricao" th:field="${clienteAdd.estado}">
                                         </div>
                                    </div>
                               </div>
