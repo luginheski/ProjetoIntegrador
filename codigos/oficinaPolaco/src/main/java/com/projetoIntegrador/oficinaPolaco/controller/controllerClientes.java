@@ -44,7 +44,7 @@ public class controllerClientes {
      @GetMapping("/listagem")
     public String mostraPiloto(Model model) {
         model.addAttribute("clientes", Dados.listarClientes());
-        return "cliente";
+        return "redirect:/cliente";
     }
     
        
