@@ -27,7 +27,7 @@
                          </div>
                          <nav
                              <p><a type="submit" class="btn btn-primary button">Consultar / CPF</a></p>
-                              <p><a type="button" class="btn btn-primary button">Salvar Novo</a></p>
+                              <p><a type="submit" class="btn btn-primary button" form="cadastro">Salvar Novo</a></p>
                               <p><a type="button" class="btn btn-primary button">Limpar</a></p>
                               <p><a type="button" class="btn btn-primary button">Excluir</a></p>
                               <p><a type="button" class="btn btn-primary button" th:href="@{/orcamentos}" >Voltar</a></p>
@@ -36,20 +36,21 @@
                     <div>
                          <h5>Dados pessoais:</h5>
                          <hr>
-                         <form th:action="@{/cadastroCliente}" method="POST" th:object="${clienteAdd}">
+                         <form id="cadastro" th:action="@{/cadastroCliente}" method="POST" th:object="${cliente}">
                               <div class="container mt-3">
                                    <div class="row">
                                         <div class="col-sm-6">
+                                             <input type="hidden" th:field="${cliente.id}">
                                              <h5>Nome:</h5>
-                                             <input type="text" class="descricao" th:field="${clienteAdd.nome}">
+                                             <input type="text" class="descricao" th:field="${cliente.nome}">
                                              <h5>CPF:</h5>
-                                             <input type="text" class="descricao" th:field="${clienteAdd.cpf}">
+                                             <input type="text" class="descricao" th:field="${cliente.cpf}">
                                         </div>
                                         <div class="col-sm-6">
                                              <h5>RG:</h5>
-                                             <input type="text" class="descricao" th:field="${clienteAdd.rg}">
+                                             <input type="text" class="descricao" th:field="${cliente.rg}">
                                              <h5>Telefone:</h5>
-                                             <input type="text" class="descricao" th:field="${clienteAdd.telefone}">
+                                             <input type="text" class="descricao" th:field="${cliente.telefone}">
                                         </div>
                                    </div>
                               </div>
@@ -61,19 +62,19 @@
                                    <div class="row">
                                         <div class="col-sm-6">
                                              <h5>Rua:</h5>
-                                             <input type="text" class="descricao" th:field="${clienteAdd.rua}">
+                                             <input type="text" class="descricao" th:field="${cliente.rua}">
                                              <h5>CEP:</h5>
-                                             <input type="text" class="descricao" th:field="${clienteAdd.cep}">
+                                             <input type="text" class="descricao" th:field="${cliente.cep}">
                                              <h5>Cidade:</h5>
-                                             <input type="text" class="descricao" th:field="${clienteAdd.cidade}">
+                                             <input type="text" class="descricao" th:field="${cliente.cidade}">
                                         </div>
                                         <div class="col-sm-6">
                                              <h5>Nº:</h5>
-                                             <input type="text" class="descricao" th:field="${clienteAdd.numero}">
+                                             <input type="text" class="descricao" th:field="${cliente.numero}">
                                              <h5>Bairro:</h5>
-                                             <input type="text" class="descricao" th:field="${clienteAdd.bairro}">
+                                             <input type="text" class="descricao" th:field="${cliente.bairro}">
                                              <h5>Estado:</h5>
-                                             <input type="text" class="descricao" th:field="${clienteAdd.estado}">
+                                             <input type="text" class="descricao" th:field="${cliente.estado}"/>
                                         </div>
                                    </div>
                               </div>
@@ -97,25 +98,15 @@
                                         </tr>
                                    </thead>
                                    <tbody>
-                                        <tr>
-                                             <td>Paulo Freitas Amalio de Jesus</td>
-                                             <td>000.111.222-44</td>
-                                             <td>(41)98764-1234</td>
-                                             <td>Primeiro de abril</td>
-                                             <td>3223</td>
-                                             <td>80.500-999</td>
-                                             <td>Não me toque</td>
-                                             <td>RS</td>
-                                        </tr>
-                                        <tr>
-                                             <td>Silvia Amalio de Davi</td>
-                                             <td>000.111.222-44</td>
-                                             <td>(41)98764-1234</td>
-                                             <td>Segundo de abril</td>
-                                             <td>3223</td>
-                                             <td>80.500-999</td>
-                                             <td>Florianópolis</td>
-                                             <td>SC</td>
+                                        <tr th:each="cliente : ${clientes}">
+                                             <td th:text="${cliente.nome}"></td>
+                                             <td th:text="${cliente.cpf}"></td>
+                                             <td th:text="${cliente.telefone}"></td>
+                                             <td th:text="${cliente.rua}"></td>
+                                             <td th:text="${cliente.numero}"></td>
+                                             <td th:text="${cliente.cep}"></td>
+                                             <td th:text="${cliente.cidade}"></td>
+                                             <td th:text="${cliente.estado}"></td>
                                         </tr>
                                    </tbody>
                               </table>
