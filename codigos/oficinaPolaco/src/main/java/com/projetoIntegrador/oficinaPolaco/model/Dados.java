@@ -36,7 +36,7 @@ public class Dados {
         return clienteEncontrado;
     }
 
-    public static void atualizarPiloto(Cliente cliente) {
+    public static void atualizarCliente(Cliente cliente) {
         for (Cliente c : listaCliente) {
             if (c.getId() == cliente.getId()) {
                 c.setNome(cliente.getNome());
