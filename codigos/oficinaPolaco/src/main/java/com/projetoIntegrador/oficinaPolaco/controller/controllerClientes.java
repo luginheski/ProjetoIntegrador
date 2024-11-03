@@ -15,28 +15,27 @@ public class controllerClientes {
     @GetMapping("/inserirCliente")
     public String mostraCadastro(Model model) {
         model.addAttribute("cliente", new Cliente());
+        model.addAttribute("clientes", Dados.listarClientes());
         return "cliente";
     }
     
-    @GetMapping("/exibir")
-    public String mostraDetalhes(Model model, @RequestParam String id) {
-        Integer idCliente = Integer.parseInt(id);
-        Cliente clienteEncontrado = new Cliente();
-        clienteEncontrado = Dados.obtemCliente(idCliente);
-        model.addAttribute("clientes", clienteEncontrado);
-        return "exibir";
+    @GetMapping("/buscarCpf")
+    public String mostraDetalhes(Model model, @RequestParam String cpf, @ModelAttribute Cliente cliente) {
+        //String cpfCliente = cpf;       
+        model.addAttribute("clientes", Dados.obtemClientes(cpf));
+        return "cliente";
     }
 
     @PostMapping("/cadastroCliente")
     public String processarCliente(Model model, @ModelAttribute Cliente cliente) {
         Dados.adicionarCliente(cliente);
-        return "redirect:/listar";
+        return "redirect:/inserirCliente";
     }   
     
      @GetMapping("/listar")
     public String mostraCliente(Model model) {
         model.addAttribute("clientes", Dados.listarClientes());
-        return "redirect:/inserirCliente";
+        return "cliente";
     }
     
        
@@ -48,9 +47,9 @@ public class controllerClientes {
     }
     
     @GetMapping("/alterar-cliente")
-    public String AlterarCliente(Model model, @RequestParam String id) {
-        Integer idCliente = Integer.parseInt(id);
-        model.addAttribute("cliente", Dados.obtemCliente(idCliente));
+    public String AlterarCliente(Model model, @RequestParam String cpf) {
+        String cpfCliente = cpf;
+        model.addAttribute("cliente", Dados.obtemCliente(cpfCliente));
         return "cadastro";
     }
 }

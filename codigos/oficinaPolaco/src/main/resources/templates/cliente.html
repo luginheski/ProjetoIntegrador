@@ -26,8 +26,8 @@
                               <h5>Cadastro de clientes:</h5>
                          </div>
                          <nav>
-                              <p><button type="submit" class="btn btn-primary button">Consultar / CPF</button></p>
-                              <p><button type="submit" form="cadastro" class="btn btn-primary button">Salvar Novo</button></p>
+                              <p><button type="submit" class="btn btn-primary button" th:href="@{/buscarCpf(cpf=${cliente.cpf})}">Consultar / CPF</button></p>
+                              <p><button type="submit" form="cadastro" class="btn btn-primary button" >Salvar Novo</button></p>
                               <p><button type="submit" class="btn btn-primary button">Limpar</button></p>
                               <p><button type="submit" class="btn btn-primary button">Excluir</button></p>
                               <p><a type="button" class="btn btn-primary button" th:href="@{/orcamentos}" >Voltar</a></p>
@@ -36,7 +36,7 @@
                     <div>
                          <h5>Dados pessoais:</h5>
                          <hr>
-                         <form th:action="@{/cadastroCliente}" method="POST" th:object="${cliente}" id="cadastro">
+                         <form id="cadastro" method="POST" th:object="${cliente}" th:action="@{/cadastroCliente}" >
                               <div class="container mt-3">
                                    <div class="row">
                                         <div class="col-sm-6">
