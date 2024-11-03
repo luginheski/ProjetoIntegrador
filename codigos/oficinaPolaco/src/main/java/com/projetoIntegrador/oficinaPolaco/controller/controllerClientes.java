@@ -22,7 +22,7 @@ public class controllerClientes {
     @GetMapping("/buscarCpf")
     public String mostraDetalhes(Model model, @RequestParam String cpf, @ModelAttribute Cliente cliente) {
         //String cpfCliente = cpf;       
-        model.addAttribute("clientes", Dados.obtemClientes(cpf));
+        model.addAttribute("cliente", Dados.obtemClientes(cpf));
         return "cliente";
     }
 
