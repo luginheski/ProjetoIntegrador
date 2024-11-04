@@ -11,6 +11,8 @@
           <link href="../css/orcamentos.css" rel="stylesheet" type="text/css"/>
           <link href="../css/cliente.css" rel="stylesheet" type="text/css"/>
           <script src="../bootstrap/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+     
+          
      </head>
      <body>
           <div class="principal">
@@ -26,7 +28,7 @@
                               <h5>Cadastro de clientes:</h5>
                          </div>
                          <nav>
-                              <p><button type="submit" class="btn btn-primary button" th:href="@{/buscarCpf(adicionaCpf())}">Consultar / CPF</button></p>
+                              <p><button type="submit" onclick="adicionaCpf()" class="btn btn-primary button">Consultar / CPF</button></p>
                               <p><button type="submit" form="cadastro" class="btn btn-primary button" >Salvar Novo</button></p>
                               <p><button type="submit" class="btn btn-primary button">Limpar</button></p>
                               <p><button type="submit" class="btn btn-primary button">Excluir</button></p>
@@ -113,6 +115,6 @@
                          </div>
                </div>
           </div>
-         <script src="../js/script.js" type="text/javascript"></script>
+          <script src="../js/script.js" type="text/javascript"></script>
      </body>
 </html>
