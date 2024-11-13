@@ -34,8 +34,7 @@ public class controllerClientes {
         model.addAttribute("clientes", Dados.listarClientes());
         return "cadastroCliente";
     }
-    
-       
+           
     @GetMapping("/excluir-cliente")
     public String excluirCliente(Model model, @RequestParam String id) {
         Integer idCliente = Integer.parseInt(id);

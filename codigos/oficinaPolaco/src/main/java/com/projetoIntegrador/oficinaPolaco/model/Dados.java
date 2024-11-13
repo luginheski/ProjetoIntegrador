@@ -6,6 +6,7 @@ import java.util.List;
 public class Dados {
 
     private static List<Cliente> listaCliente = new ArrayList();
+    private static List<Veiculo> listaVeiculo = new ArrayList();
 
     public static void adicionarCliente(Cliente cliente) {
         cliente.setId(listaCliente.size() + 1);
@@ -50,5 +51,20 @@ public class Dados {
             }
         }
         return clienteEncontrado;
+    }
+    
+    public static Cliente buscaClienteCpf(String cpf){
+        Cliente clienteEncontrado = new Cliente();
+        for (Cliente c : listaCliente){
+            if (c.getCpf() == cpf){
+                clienteEncontrado = c;
+                break;
+            }
+        }
+        return clienteEncontrado;
+    }
+    
+    public static List<Veiculo> listarVeiculos() {
+        return listaVeiculo;
     }
 }
