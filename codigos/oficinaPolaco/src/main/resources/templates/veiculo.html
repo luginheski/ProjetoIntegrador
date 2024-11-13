@@ -35,7 +35,7 @@
                     <div>
                          <h5>Dados pessoais:</h5>
                          <hr>
-                         <form id="cliente" th:action="@{/buscarClienteCpf(cpfCliente)}" method="POST" th:object="${cliente}">
+                         <form id="cliente" th:action="@{/buscarClienteCpf()}" method="POST">
                               <div class="container mt-3">
                                    <div class="row">
                                         <div class="col-sm-6">
@@ -44,7 +44,7 @@
                                         </div>
                                         <div class="col-sm-6">
                                              <h5>CPF:</h5>
-                                             <input type="text" id="cpfCliente" class="descricao inbox" th:field="${cliente.cpf}">
+                                             <input type="text" name="cpfCliente" class="descricao inbox" th:field="${cliente.cpf}">
                                              <input type="hidden" th:field="${cliente.id}">
                                         </div>
                                    </div>
