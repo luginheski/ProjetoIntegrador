@@ -24,26 +24,7 @@ public class Dados {
             }
         }
     }
-
-    public static Cliente obtemCliente(String cpf) {
-        Cliente clienteEncontrado = new Cliente();
-        for (Cliente c : listaCliente) {
-            if (c.getCpf() == cpf) {
-                clienteEncontrado = c;
-                   clienteEncontrado.setNome(c.getNome());
-                   clienteEncontrado.setRg(c.getRg());
-                   clienteEncontrado.setCpf(c.getCpf());
-                   clienteEncontrado.setRua(c.getRua());
-                   clienteEncontrado.setNumero(c.getNumero());
-                   clienteEncontrado.setBairro(c.getBairro());
-                   clienteEncontrado.setCidade(c.getCidade());
-                   clienteEncontrado.setEstado(c.getEstado());
-                break;
-            }
-        }
-        return clienteEncontrado;
-    }
-
+   
     public static void atualizarCliente(Cliente cliente) {
         for (Cliente c : listaCliente) {
             if (c.getId() == cliente.getId()) {
@@ -60,10 +41,10 @@ public class Dados {
         }
     }
     
-    public static Cliente obtemClientes(String cpf) {
+    public static Cliente obtemCliente(Integer id) {
         Cliente clienteEncontrado = new Cliente();
         for (Cliente c : listaCliente) {
-            if (c.getCpf() == cpf) {
+            if (c.getId() == id) {
                 clienteEncontrado = c;
                 break;
             }
