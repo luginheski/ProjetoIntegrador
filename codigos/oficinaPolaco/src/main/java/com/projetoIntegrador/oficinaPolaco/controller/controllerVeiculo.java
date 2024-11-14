@@ -36,9 +36,16 @@ public class controllerVeiculo {
     }
     
     @GetMapping("/listarVeiculo")
-    public String mostraCliente(Model model) {
+    public String mostraVeiculo(Model model) {
         model.addAttribute("veiculos", Dados.listarVeiculos());
         return "veiculo";
+    }
+    
+    @GetMapping("/excluirVeiculo")
+    public String excluirVeiculo(Model model, @RequestParam String id) {
+        Integer idVeiculo = Integer.parseInt(id);
+        Dados.excluirVeiculo(idVeiculo);
+        return "redirect:/orcamentos";
     }
   
 }

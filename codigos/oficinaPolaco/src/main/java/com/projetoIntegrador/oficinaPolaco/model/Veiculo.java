@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 
 public class Veiculo {
     
-    private int idVeiculo;
+    private Integer idVeiculo;
     private String fabricante;
     private String modelo;
     private int anoFabricacao;
