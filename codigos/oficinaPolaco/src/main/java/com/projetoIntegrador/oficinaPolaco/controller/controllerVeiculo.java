@@ -3,9 +3,12 @@ package com.projetoIntegrador.oficinaPolaco.controller;
 import com.projetoIntegrador.oficinaPolaco.model.Cliente;
 import com.projetoIntegrador.oficinaPolaco.model.Dados;
 import com.projetoIntegrador.oficinaPolaco.model.Veiculo;
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -13,16 +16,29 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class controllerVeiculo {
        
     @GetMapping("/inserirVeiculo")
-    public String mostraVeiculo(Model model){
+    public String mostraVeiculo(Model model, @RequestParam String id){
+        Integer idCliente = Integer.parseInt(id);
+        Cliente clienteEncontrado = new Cliente();
+        clienteEncontrado = Dados.obtemCliente(idCliente);
+        
+        List<Veiculo> veiculoEncontrado = new ArrayList<>();
+        veiculoEncontrado = Dados.listaVeiculo(idCliente);
+        model.addAttribute("cliente", clienteEncontrado);
+        model.addAttribute("veiculos", veiculoEncontrado);
         model.addAttribute("veiculo", new Veiculo());
-        model.addAttribute("cliente", new Cliente());
-        model.addAttribute("clientes", Dados.listarVeiculos());
         return "veiculo";
     }
     
-    @PostMapping("/buscarClienteCpf")
-    public String buscaClienteCpf(Model model, @RequestParam("cpfCliente") String cpf){
-        model.addAttribute("cliente", Dados.buscaClienteCpf(cpf));
+    @PostMapping("/guardarVeiculo")
+    public String processarVeiculo(Model model, @ModelAttribute Veiculo veiculo, @ModelAttribute Cliente cliente){
+        Dados.adicionaVeiculo(veiculo, cliente);
+        return "redirect:/orcamentos";
+    }
+    
+    @GetMapping("/listarVeiculo")
+    public String mostraCliente(Model model) {
+        model.addAttribute("veiculos", Dados.listarVeiculos());
         return "veiculo";
     }
+  
 }

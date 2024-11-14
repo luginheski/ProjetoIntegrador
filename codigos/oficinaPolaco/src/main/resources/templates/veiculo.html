@@ -35,7 +35,7 @@
                     <div>
                          <h5>Dados pessoais:</h5>
                          <hr>
-                         <form id="cliente" th:action="@{/buscarClienteCpf()}" method="POST">
+                         <form>
                               <div class="container mt-3">
                                    <div class="row">
                                         <div class="col-sm-6">
@@ -52,24 +52,26 @@
                          </form>
                          <h5>Veiculo:</h5>
                          <hr>
-                         <form id="cadastro">
+                         <form id="cadastro" th:action="@{/guardarVeiculo}" method="POST" th:object="${veiculo}">
                               <div class="container mt-3">
                                    <div class="row">
                                         <div class="col-sm-6">
                                              <h5>Fabricante:</h5>
-                                             <input type="text" class="descricao inbox">
+                                             <input type="text" class="descricao inbox" th:field="${veiculo.fabricante}">
                                              <h5>Ano fabricação:</h5>
-                                             <input type="text" class="descricao inbox">
+                                             <input type="text" class="descricao inbox" th:field="${veiculo.anoFabricacao}">
                                              <h5>Placa:</h5>
-                                             <input type="text" class="descricao inbox">
+                                             <input type="text" class="descricao inbox" th:field="${veiculo.placa}">
                                         </div>
                                         <div class="col-sm-6">
                                              <h5>Modelo:</h5>
-                                             <input type="text" class="descricao inbox">
+                                             <input type="text" class="descricao inbox" th:field="${veiculo.modelo}">
                                              <h5>Ano moelo:</h5>
-                                             <input type="text" class="descricao inbox">
+                                             <input type="text" class="descricao inbox" th:field="${veiculo.anoModelo}">
                                              <h5>Hodometro / Km:</h5>
-                                             <input type="text" class="descricao inbox">
+                                             <input type="text" class="descricao inbox" th:field="${veiculo.hodometroAtual}">
+                                             <input type="hidden" th:field="${veiculo.idVeiculo}"/>
+                                             <input type="hidden" th:field="${cliente.id}"/>
                                         </div>
                                    </div>
                               </div>
@@ -82,8 +84,6 @@
                               <table class="table table-edit"
                                      <thead>
                                         <tr>
-                                             <th>Cliente</th>
-                                             <th>CPF</th>
                                              <th>Fabricante</th>
                                              <th>Modelo</th>
                                              <th>Ano Fabricação</th>
@@ -92,14 +92,12 @@
                                         </tr>
                                    </thead>
                                    <tbody>
-                                        <tr>
-                                             <td>Silvia Amalio de Davi</td>
-                                             <td>000.111.222-44</td>
-                                             <td>FIAT</td>
-                                             <td>Uno</td>
-                                             <td>2012</td>
-                                             <td>2012</td>
-                                             <td>125000</td>
+                                        <tr th:each="veiculo : ${veiculos}">
+                                             <td th:text="${veiculo.fabricante}"></td>
+                                             <td th:text="${veiculo.modelo}"></td>
+                                             <td th:text="${veiculo.anoFabricacao}"></td>
+                                             <td th:text="${veiculo.anoModelo}"></td>
+                                             <td th:text="${veiculo.hodometroAtual}"></td>
                                         </tr>
                                    </tbody>
                               </table>

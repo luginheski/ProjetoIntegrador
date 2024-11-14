@@ -53,18 +53,42 @@ public class Dados {
         return clienteEncontrado;
     }
     
-    public static Cliente buscaClienteCpf(String cpf){
-        Cliente clienteEncontrado = new Cliente();
-        for (Cliente c : listaCliente){
-            if (c.getCpf() == cpf){
-                clienteEncontrado = c;
-                break;
-            }
-        }
-        return clienteEncontrado;
-    }
     
     public static List<Veiculo> listarVeiculos() {
         return listaVeiculo;
+    }
+    
+    public static List<Veiculo> listaVeiculo(Integer idCliente) {
+        List<Veiculo> veiculoEncontrado = new ArrayList<>();
+        for (Veiculo v : listaVeiculo) {
+            if (v.getIdCliente().getId() == idCliente) {
+                veiculoEncontrado.add(v);
+            }
+        }
+        return veiculoEncontrado;
+    }
+    
+    public static void adicionaVeiculo(Veiculo veiculo, Cliente cliente){
+        veiculo.setIdVeiculo(listaVeiculo.size()+1);
+        veiculo.setIdCliente(cliente);
+        listaVeiculo.add(veiculo);
+    }
+    
+    public static Veiculo obtemVeiculo(Integer id){
+        Veiculo veiculoEncontrado = new Veiculo();
+        for (Veiculo v : listaVeiculo){
+            if (v.getIdVeiculo() == id){
+                veiculoEncontrado = v;
+            }
+        }
+        return veiculoEncontrado;
+    }
+    
+    public static void excluirVeiculo(Integer id){
+        for(Veiculo v : listaVeiculo){
+            if(v.getIdVeiculo() == id);
+            listaVeiculo.remove(v);
+            break;
+        }
     }
 }
