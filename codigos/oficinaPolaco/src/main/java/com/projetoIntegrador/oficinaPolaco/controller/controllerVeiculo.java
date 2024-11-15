@@ -47,5 +47,11 @@ public class controllerVeiculo {
         Dados.excluirVeiculo(idVeiculo);
         return "redirect:/orcamentos";
     }
-  
+    
+    @PostMapping("/alterarVeiculo")
+    public String alteraVeiculo(Model model, @RequestParam String id, @ModelAttribute Veiculo veiculo){
+        Integer idVeiculo = Integer.parseInt(id);
+        model.addAttribute("veiculo", Dados.obtemVeiculo(idVeiculo));
+        return "redirect:/inserirVeiculo";
+    }
 }

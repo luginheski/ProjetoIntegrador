@@ -85,10 +85,28 @@ public class Dados {
     }
     
     public static void excluirVeiculo(Integer id){
-        for(Veiculo v : listaVeiculo){
-            if(v.getIdVeiculo() == id);
+        for (Veiculo v : listaVeiculo){
+            if(v.getIdVeiculo() == id){
             listaVeiculo.remove(v);
+            System.out.println("id veiculo " + v.getIdVeiculo());
+            System.out.println("id chamado " + id);
             break;
+            }
+        }
+    }
+    
+    public static void atualizarVeiculo(Veiculo veiculo) {
+        for (Veiculo v : listaVeiculo) {
+            if (v.getIdCliente().getId() == veiculo.getIdVeiculo()) {
+                v.setModelo(veiculo.getModelo());
+                v.setPlaca(veiculo.getPlaca());
+                v.setHodometroAtual(veiculo.getHodometroAtual());
+                v.setHodometroAnterior(veiculo.getHodometroAnterior());
+                v.setFabricante(veiculo.getFabricante());
+                v.setAnoModelo(veiculo.getAnoModelo());
+                v.setAnoFabricacao(veiculo.getAnoFabricacao());
+                break;
+            }
         }
     }
 }

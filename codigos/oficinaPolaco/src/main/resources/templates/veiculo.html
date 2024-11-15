@@ -102,7 +102,7 @@
                                              <td th:text="${veiculo.anoModelo}"></td>
                                              <td th:text="${veiculo.hodometroAtual}"></td>
                                              <td>
-                                                <a class="btn btn-outline-warning btn-sm" >Editar</a>
+                                                <a class="btn btn-outline-warning btn-sm" th:href="@{'/alterarVeiculo?id='+${veiculo.idVeiculo}}">Editar</a>
                                                 <a class="btn btn-outline-danger btn-sm" th:href="@{'/excluirVeiculo?id='+${veiculo.idVeiculo}}">Exclir</a>
                                                 <a class="btn btn-outline-info btn-sm" >OS</a>
                                              </td>
