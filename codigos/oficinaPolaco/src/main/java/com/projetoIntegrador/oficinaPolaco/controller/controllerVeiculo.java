@@ -32,7 +32,7 @@ public class controllerVeiculo {
     @PostMapping("/guardarVeiculo")
     public String processarVeiculo(Model model, @ModelAttribute Veiculo veiculo, @ModelAttribute Cliente cliente){
         Dados.adicionaVeiculo(veiculo, cliente);
-        return "redirect:/orcamentos";
+        return "redirect:/inserirCliente";
     }
     
     @GetMapping("/listarVeiculo")
@@ -45,13 +45,20 @@ public class controllerVeiculo {
     public String excluirVeiculo(Model model, @RequestParam String id) {
         Integer idVeiculo = Integer.parseInt(id);
         Dados.excluirVeiculo(idVeiculo);
-        return "redirect:/orcamentos";
+        return "redirect:'/incluirOrcamento?id=0";
     }
     
     @PostMapping("/alterarVeiculo")
-    public String alteraVeiculo(Model model, @RequestParam String id, @ModelAttribute Veiculo veiculo){
-        Integer idVeiculo = Integer.parseInt(id);
-        model.addAttribute("veiculo", Dados.obtemVeiculo(idVeiculo));
-        return "redirect:/inserirVeiculo";
+    public String alteraVeiculo(Model model, @RequestParam String id, @ModelAttribute Veiculo veiculo, @ModelAttribute Cliente cliente){
+        Veiculo veiculoEncontrado = new Veiculo();
+        Integer idVel = Integer.parseInt(id);
+        veiculoEncontrado = Dados.obtemVeiculo(idVel);
+        Cliente idCli = new Cliente();
+      
+        idCli = Dados.obtemCliente(veiculoEncontrado.getIdCliente().getId());
+        
+        model.addAttribute("veiculo", Dados.obtemVeiculo(idVel));
+        model.addAttribute("cliente", Dados.obtemCliente(idCli.getId()));
+        return "redirect:/gardarVeiculo";
     }
 }

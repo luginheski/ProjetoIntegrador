@@ -29,7 +29,7 @@
                             <p><button type="submit" form="cliente" class="btn btn-primary button">Consulta / CPF</button></p>
                             <p><button type="submit" form="cadastro" class="btn btn-primary button">Salvar</button></p>
                             <p><button type="submit" class="btn btn-primary button">Limpar</button></p>
-                            <p><a type="button" class="btn btn-primary button" th:href="@{/orcamentos}" >Voltar</a></p>
+                            <p><a type="button" class="btn btn-primary button" th:href="@{/'/incluirOrcamento?id='+0}" >Voltar</a></p>
                          </nav>
                     </div>
                     <div>
@@ -102,9 +102,8 @@
                                              <td th:text="${veiculo.anoModelo}"></td>
                                              <td th:text="${veiculo.hodometroAtual}"></td>
                                              <td>
-                                                <a class="btn btn-outline-warning btn-sm" th:href="@{'/alterarVeiculo?id='+${veiculo.idVeiculo}}">Editar</a>
                                                 <a class="btn btn-outline-danger btn-sm" th:href="@{'/excluirVeiculo?id='+${veiculo.idVeiculo}}">Exclir</a>
-                                                <a class="btn btn-outline-info btn-sm" >OS</a>
+                                                <a class="btn btn-outline-info btn-sm" th:href="@{'/incluirOrcamento?id='+${veiculo.idVeiculo}}">OS</a>
                                              </td>
                                         </tr>
                                    </tbody>

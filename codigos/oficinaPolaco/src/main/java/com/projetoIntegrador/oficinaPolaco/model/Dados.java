@@ -7,6 +7,7 @@ public class Dados {
 
     private static List<Cliente> listaCliente = new ArrayList();
     private static List<Veiculo> listaVeiculo = new ArrayList();
+    private static List<OrdemServico> listaOs = new ArrayList();
 
     public static void adicionarCliente(Cliente cliente) {
         cliente.setId(listaCliente.size() + 1);
@@ -88,24 +89,47 @@ public class Dados {
         for (Veiculo v : listaVeiculo){
             if(v.getIdVeiculo() == id){
             listaVeiculo.remove(v);
-            System.out.println("id veiculo " + v.getIdVeiculo());
-            System.out.println("id chamado " + id);
             break;
             }
         }
     }
     
-    public static void atualizarVeiculo(Veiculo veiculo) {
-        for (Veiculo v : listaVeiculo) {
-            if (v.getIdCliente().getId() == veiculo.getIdVeiculo()) {
-                v.setModelo(veiculo.getModelo());
-                v.setPlaca(veiculo.getPlaca());
-                v.setHodometroAtual(veiculo.getHodometroAtual());
-                v.setHodometroAnterior(veiculo.getHodometroAnterior());
-                v.setFabricante(veiculo.getFabricante());
-                v.setAnoModelo(veiculo.getAnoModelo());
-                v.setAnoFabricacao(veiculo.getAnoFabricacao());
-                break;
+    public static List<Veiculo> listarOss() {
+        return listaVeiculo;
+    }
+    
+    public static List<OrdemServico> listaOs(Integer idVeiculo) {
+        List<OrdemServico> osEncontrada = new ArrayList<>();
+        for (OrdemServico o : listaOs) {
+            if (o.getVelId().getIdVeiculo() == idVeiculo) {
+                osEncontrada.add(o);
+            }
+            System.out.println("id os " + o.getIdOs());
+        }
+        return osEncontrada;
+    }
+    
+    public static void adicionaOs(OrdemServico os, Veiculo veiculo){
+        os.setIdOs(listaOs.size()+1);
+        os.setVelId(veiculo);
+        listaOs.add(os);
+    }
+    
+    public static OrdemServico obtemOs(Integer id){
+        OrdemServico osEncontrado = new OrdemServico();
+        for (OrdemServico o : listaOs){
+            if (o.getIdOs() == id){
+                osEncontrado = o;
+            }
+        }
+        return osEncontrado;
+    }
+    
+    public static void excluirOs(Integer id){
+        for (OrdemServico o : listaOs){
+            if(o.getIdOs() == id){
+            listaOs.remove(o);
+            break;
             }
         }
     }

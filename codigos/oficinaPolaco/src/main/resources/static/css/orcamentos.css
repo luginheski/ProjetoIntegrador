@@ -1,7 +1,8 @@
 .grid-container {
     display: grid;
     grid-template-columns: 20% 40% 40%;
-    gap: 5px;
+    gap: 5px
+   
 }
 
 .grid-container > div {
@@ -9,6 +10,7 @@
     padding: auto 0;
     font-size: 30px;
     border-radius: 5px;
+    margin-top: 20px;
 }
 
 .table-edit {
