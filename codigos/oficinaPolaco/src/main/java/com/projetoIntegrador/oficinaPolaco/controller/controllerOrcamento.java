@@ -32,19 +32,26 @@ public class controllerOrcamento {
         
         return "orcamentos";
         }else{
-            return "orcamentos";
+        return "orcamentos";
         }
     }
     
     @PostMapping("/guardarOs")
     public String processarOs(Model model, @ModelAttribute Veiculo veiculo, @ModelAttribute OrdemServico os){
         Dados.adicionaOs(os, veiculo);
-        return "redirect:/incluirOrcamento";
+        return "redirect:/inserirCliente";
     }
       
     @GetMapping("/listarOs")
     public String mostraVeiculo(Model model) {
         model.addAttribute("ordemServicos", Dados.listarOss());
         return "orcamentos";
+    }
+    
+    @GetMapping("/excluirOs")
+    public String excluirOs(Model model, @RequestParam String id) {
+        Integer idOs = Integer.parseInt(id);
+        Dados.excluirOs(idOs);
+        return "redirect:/inserirCliente";
     }
 }

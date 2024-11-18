@@ -37,9 +37,10 @@
                                    <div class="row">
                                         <div class="col-sm-4">
                                              <h5>Placa:</h5>
-                                             <input type="text" class="descricao inbox" >
+                                             <input type="text" class="descricao inbox" th:field="${veiculo.placa}">
                                              <h5>OS:</h5>
                                              <input type="text" class="descricao inbox" th:field="${ordemServico.idOs}">
+                                             <input type="hidden" th:field="${veiculo.idVeiculo}">
                                         </div>
                                         <div class="col-sm-4">
                                              <h5>Km anterior:</h5>
@@ -128,22 +129,27 @@
                               <table class="table table-edit"
                                      <thead>
                                         <tr>
-                                             <th>Cliente</th>
+                                             <th>Id OS</th>
                                              <th>Placa</th>
                                              <th>Veiculo</th>
                                              <th>Km atual</th>
                                              <th>Valor total</th>
                                              <th>Data Serviço</th>
+                                             <th>Opções</th>
                                         </tr>
                                    </thead>
                                    <tbody>
                                         <tr th:each="ordemServico : ${ordemServicos}">
                                              <td th:text="${ordemServico.idOs}"></td>
+                                             <td th:text="${veiculo.placa}"></td>
                                              <td></td>
                                              <td></td>
                                              <td></td>
                                              <td></td>
-                                             <td></td>
+                                             <td>
+                                               <a class="btn btn-outline-danger btn-sm" th:href="@{'/excluirOs?id='+${ordemServico.idOs}}">Exclir</a>
+                                               <a class="btn btn-outline-info btn-sm" >Peças</a>
+                                             </td>
                                         </tr>
                                    </tbody>
                               </table>
