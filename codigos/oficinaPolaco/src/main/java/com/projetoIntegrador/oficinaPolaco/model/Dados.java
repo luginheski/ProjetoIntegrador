@@ -8,6 +8,7 @@ public class Dados {
     private static List<Cliente> listaCliente = new ArrayList();
     private static List<Veiculo> listaVeiculo = new ArrayList();
     private static List<OrdemServico> listaOs = new ArrayList();
+    private static List<Pecas> listaPeca = new ArrayList();
 
     public static void adicionarCliente(Cliente cliente) {
         cliente.setId(listaCliente.size() + 1);
@@ -104,10 +105,6 @@ public class Dados {
             if (o.getVelId().getIdVeiculo() == idVeiculo) {
                 osEncontrada.add(o);
             }
-            System.out.println("id os " + o.getIdOs());
-            System.out.println("km atual " + o.getHodometroAtual());
-            System.out.println("km antigo " + o.getHodometroAntigo());
-            System.out.println("id veiculo " + o.getVelId());
         }
         return osEncontrada;
     }
@@ -133,6 +130,48 @@ public class Dados {
             if(o.getIdOs() == id){
             listaOs.remove(o);
             break;
+            }
+        }
+    }
+    
+    public static List<Pecas> listarpecas() {
+        return listaPeca;
+    }
+    
+    public static List<Pecas> listaPeca(Integer idOrcamento) {
+        List<Pecas> pecaEncontrada = new ArrayList<>();
+        for (Pecas p : listaPeca) {
+            if (p.getOrdemServicoId().getIdOs() == idOrcamento) {
+                pecaEncontrada.add(p);
+            }
+     
+        }
+        return pecaEncontrada;
+    }
+    
+    public static void adicionaPeca(Pecas peca, OrdemServico os){
+        peca.setIdPeca(listaPeca.size()+1);
+        peca.setOrdemServicoId(os);
+        
+        listaPeca.add(peca);
+    }
+    
+    public static Pecas obtemPeca(Integer id){
+        Pecas pecaEncontrada = new Pecas();
+        for(Pecas p : listaPeca){
+            if(p.getIdPeca() == id){
+                pecaEncontrada = p;
+            }
+        }
+        
+        return pecaEncontrada;
+    }
+    
+    public static void excluirPeca(Integer id){
+        for (Pecas p : listaPeca){
+            if(p.getIdPeca() == id){
+                listaPeca.remove(p);
+                break;
             }
         }
     }

@@ -23,36 +23,35 @@
         <div class="grid-container-cliente">
                     <div>
                          <div>
-                              <h5>Cadastro de Veiculo:</h5>
+                              <h5>Cadastro de Peças:</h5>
                          </div>
                         <nav>
-                            <p><button type="submit" form="cliente" class="btn btn-primary button">Consulta / CPF</button></p>
                             <p><button type="submit" form="cadastro" class="btn btn-primary button">Salvar</button></p>
                             <p><button type="submit" class="btn btn-primary button">Limpar</button></p>
                             <p><a type="button" class="btn btn-primary button" th:href="@{/'/incluirOrcamento?id='+0}" >Voltar</a></p>
                          </nav>
                     </div>
                     <div>
-                         <h5>Dados Veiculo:</h5>
+                         <h5>Ordem de serviço:</h5>
                          <hr>
                          <form>
                               <div class="container mt-3">
                                    <div class="row">
                                         <div class="col-sm-6">
-                                             <h5>Veículo:</h5>
-                                             <input type="text" class="descricao inbox" th:field="${veiculo.modelo}">
+                                             <h5>ID OS:</h5>
+                                             <input type="text" class="descricao inbox" th:field="${ordemServico.idOs}">
                                         </div>
                                         <div class="col-sm-6">
-                                             <h5>Km anterior:</h5>
-                                             <input type="text" class="descricao inbox" th:field="${veiculo.hodometro}">
-                                             <input type="hidden" th:field="${veiculo.idVeiculo}">
+                                             <h5>Data Serviço:</h5>
+                                             <input type="text" class="descricao inbox" th:field="${ordemServico.dataServico}">
+                                             
                                         </div>
                                    </div>
                               </div>
                          </form>
-                         <h5>Ordem de serviço:</h5>
+                         <h5>Peças:</h5>
                          <hr>
-                         <form>
+                         <form id="cadastro" th:action="@{/guardarPeca}" method="POST" th:object="${peca}">
                               <div class="menuDesc">
                                    <h5>Descrição da peça:</h5>
                                    <p><input type="text" class="descricao inbox"</p>

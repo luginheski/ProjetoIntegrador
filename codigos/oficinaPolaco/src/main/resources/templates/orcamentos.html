@@ -40,13 +40,13 @@
                                         <div class="col-sm-6">
                                              <h5>Veiculo:</h5>
                                              <input type="text" class="descricao inbox" th:field="${veiculo.modelo}">
-                                             <h5>Km anterior:</h5>
-                                             <input type="text" class="descricao inbox" th:field="${veiculo.hodometro}">
+                                             
                                         </div>
                                         <div class="col-sm-6">
                                             <h5>Placa:</h5>
                                              <input type="text" class="descricao inbox" th:field="${veiculo.placa}"> 
-                                            
+                                            <h5>Km anterior:</h5>
+                                             <input type="text" class="descricao inbox" th:field="${veiculo.hodometro}">
                                              <input type="hidden" th:field="${veiculo.idVeiculo}">
                                         </div>
                                    </div>
@@ -58,13 +58,13 @@
                               <div class="container mt-3">
                                    <div class="row">
                                         <div class="col-sm-6">
-                                             <h5>Km Atual:</h5>
-                                             <input type="text" class="descricao inbox" th:field="${ordemServico.hodometroAtual}">
+                                             
                                              <h5>OS:</h5>
                                              <input type="text" class="descricao inbox" th:field="${ordemServico.idOs}">
                                         </div>
                                         <div class="col-sm-6">
-                                             
+                                             <h5>Km Atual:</h5>
+                                             <input type="text" class="descricao inbox" th:field="${ordemServico.hodometroAtual}">
                                              <h5>Data serviço:</h5>
                                              <input type="text" class="descricao inbox">
                                              <input type="hidden" th:field="${veiculo.idVeiculo}">
@@ -97,7 +97,7 @@
                                              <td>19/11/2024</td>
                                              <td>
                                                <a class="btn btn-outline-danger btn-sm" th:href="@{'/excluirOs?id='+${ordemServico.idOs}}">Exclir</a>
-                                               <a class="btn btn-outline-info btn-sm" >Peças</a>
+                                               <a class="btn btn-outline-info btn-sm" th:href="@{'/incluirPeca?id='+${ordemServico.idOs}}">Peças</a>
                                              </td>
                                         </tr>
                                    </tbody>
