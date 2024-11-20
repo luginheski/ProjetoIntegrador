@@ -105,6 +105,9 @@ public class Dados {
                 osEncontrada.add(o);
             }
             System.out.println("id os " + o.getIdOs());
+            System.out.println("km atual " + o.getHodometroAtual());
+            System.out.println("km antigo " + o.getHodometroAntigo());
+            System.out.println("id veiculo " + o.getVelId());
         }
         return osEncontrada;
     }

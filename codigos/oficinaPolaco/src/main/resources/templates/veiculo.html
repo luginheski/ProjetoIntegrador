@@ -69,7 +69,7 @@
                                              <h5>Ano moelo:</h5>
                                              <input type="text" class="descricao inbox" th:field="${veiculo.anoModelo}">
                                              <h5>Hodometro / Km:</h5>
-                                             <input type="text" class="descricao inbox" th:field="${veiculo.hodometroAtual}">
+                                             <input type="text" class="descricao inbox" th:field="${veiculo.hodometro}">
                                              <input type="hidden" th:field="${veiculo.idVeiculo}"/>
                                              <input type="hidden" th:field="${cliente.id}"/>
                                         </div>
@@ -100,7 +100,7 @@
                                              <td th:text="${veiculo.modelo}"></td>
                                              <td th:text="${veiculo.anoFabricacao}"></td>
                                              <td th:text="${veiculo.anoModelo}"></td>
-                                             <td th:text="${veiculo.hodometroAtual}"></td>
+                                             <td th:text="${veiculo.hodometro}"></td>
                                              <td>
                                                 <a class="btn btn-outline-danger btn-sm" th:href="@{'/excluirVeiculo?id='+${veiculo.idVeiculo}}">Exclir</a>
                                                 <a class="btn btn-outline-info btn-sm" th:href="@{'/incluirOrcamento?id='+${veiculo.idVeiculo}}">OS</a>

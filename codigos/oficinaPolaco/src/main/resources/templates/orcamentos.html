@@ -44,13 +44,14 @@
                                         </div>
                                         <div class="col-sm-4">
                                              <h5>Km anterior:</h5>
-                                             <input type="text" class="descricao inbox" >
+                                             <input type="text" class="descricao inbox" th:field="${veiculo.hodometro}">
                                              <h5>Data serviço:</h5>
                                              <input type="text" class="descricao inbox" >
                                         </div>
                                         <div class="col-sm-4">
                                              <h5>Km atual:</h5>
                                              <input type="text" class="descricao inbox" th:fiel="${ordemServico.hodometroAtual}">
+                                             <input type="hidden" th:field="${ordemServico.idOs}"/>
                                         </div>
                                    </div>
                               </div>
@@ -133,7 +134,6 @@
                                              <th>Placa</th>
                                              <th>Veiculo</th>
                                              <th>Km atual</th>
-                                             <th>Valor total</th>
                                              <th>Data Serviço</th>
                                              <th>Opções</th>
                                         </tr>
@@ -142,10 +142,9 @@
                                         <tr th:each="ordemServico : ${ordemServicos}">
                                              <td th:text="${ordemServico.idOs}"></td>
                                              <td th:text="${veiculo.placa}"></td>
-                                             <td></td>
-                                             <td></td>
-                                             <td></td>
-                                             <td></td>
+                                             <td th:text="${veiculo.modelo}"></td>
+                                             <td th:text="${ordemServico.hodometroAtual}"></td>
+                                             <td>19/11/2024</td>
                                              <td>
                                                <a class="btn btn-outline-danger btn-sm" th:href="@{'/excluirOs?id='+${ordemServico.idOs}}">Exclir</a>
                                                <a class="btn btn-outline-info btn-sm" >Peças</a>
