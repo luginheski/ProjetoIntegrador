@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html xmlns="w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Cadastro veiculo</title>
+        <link rel="icon" href="../imagens/veiculo.png" alt=""/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/login.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/orcamentos.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/cliente.css" rel="stylesheet" type="text/css"/>
+        <script src="../bootstrap/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div class="principal">
+            <div class="logo">
+                <h1>OFICINA DO POLACO
+                    <img src="../imagens/mecanico.gif" alt="" class="img-esquerda"/>
+                    <img src="../imagens/motor.gif" alt="" class="img-direita"/>
+                </h1>
+            </div>
+        <div class="grid-container-cliente">
+                    <div>
+                         <div>
+                              <h5>Cadastro de Veiculo:</h5>
+                         </div>
+                        <nav>
+                            <p><button type="submit" form="cliente" class="btn btn-primary button">Consulta / CPF</button></p>
+                            <p><button type="submit" form="cadastro" class="btn btn-primary button">Salvar</button></p>
+                            <p><button type="submit" class="btn btn-primary button">Limpar</button></p>
+                            <p><a type="button" class="btn btn-primary button" th:href="@{/'/incluirOrcamento?id='+0}" >Voltar</a></p>
+                         </nav>
+                    </div>
+                    <div>
+                         <h5>Dados Veiculo:</h5>
+                         <hr>
+                         <form>
+                              <div class="container mt-3">
+                                   <div class="row">
+                                        <div class="col-sm-6">
+                                             <h5>Veículo:</h5>
+                                             <input type="text" class="descricao inbox" th:field="${veiculo.modelo}">
+                                        </div>
+                                        <div class="col-sm-6">
+                                             <h5>Km anterior:</h5>
+                                             <input type="text" class="descricao inbox" th:field="${veiculo.hodometro}">
+                                             <input type="hidden" th:field="${veiculo.idVeiculo}">
+                                        </div>
+                                   </div>
+                              </div>
+                         </form>
+                         <h5>Ordem de serviço:</h5>
+                         <hr>
+                         <form>
+                              <div class="menuDesc">
+                                   <h5>Descrição da peça:</h5>
+                                   <p><input type="text" class="descricao inbox"</p>
+                              </div>
+                              <div class="menuDesc">
+                                   <div class="grid-container3">
+                                        <div>
+                                             <h5>Valor Unitário:</h5>
+                                             <p><input type="text" class="descricao inbox"</p>
+                                        </div>
+                                        <div>
+                                             <h5>Quantidade:</h5>
+                                             <p><input type="text" class="descricao inbox"</p>
+                                        </div>
+                                        <div>
+                                             <h5>%:</h5>
+                                             <p><input type="text" class="descricao inbox"</p>
+                                        </div>
+                                   </div>
+                                   <div class="grid-container4">
+                                        <div>
+                                             <nav>
+                                                 <a type="submit" class="btn btn-primary buttonPeca">Adicionar</a>
+                                             </nav>
+                                        </div>
+                                        <div>
+                                             <nav>
+                                                  <a type="submit" class="btn btn-primary buttonPeca">Limpar</a>
+                                             </nav>
+                                        </div>
+                                   </div>
+                              </div>
+                         </form>
+                    </div>
+
+               </div>
+               <div class="rodape">
+                    <div style="overflow-y: scroll; height: 180px;" class="container mt-3">
+                              <table class="table table-edit"
+                                     <thead>
+                                        <tr>
+                                             <th>Peça</th>
+                                             <th>Quantidade</th>
+                                             <th>Valor unitário</th>
+                                             <th>Valor total</th>
+                                        </tr>
+                                   </thead>
+                                   <tbody>
+                                        <tr>
+                                             <td></td>
+                                             <td></td>
+                                             <td></td>
+                                             <td></td>
+                                        </tr>
+                                   </tbody>
+                              </table>
+                         </div>
+                </div>
+                    
+            
+        </div>
+        <script src="../bootstrap/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+    </body>
+</html>

@@ -9,6 +9,7 @@
           <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
           <link href="../css/login.css" rel="stylesheet" type="text/css"/>
           <link href="../css/orcamentos.css" rel="stylesheet" type="text/css"/>
+          <link href="../css/cliente.css" rel="stylesheet" type="text/css"/>
           <script src="../bootstrap/js/bootstrap.bundle.min.js" type="text/javascript"></script>
      </head>
      <body>
@@ -17,112 +18,61 @@
                     <h1>OFICINA DO POLACO
                          <img src="../imagens/mecanico.gif" alt="" class="img-esquerda"/>
                          <img src="../imagens/motor.gif" alt="" class="img-direita"/>
-                    </h1>
-                   
+                    </h1>                   
                </div>
-               <div class="grid-container">
+               <div class="grid-container-cliente">
                     <div>
-                         <nav
-                             <p><a type="button" class="btn btn-primary button" th:href="@{/inserirCliente}">Inserir Cliente / Veículo</a></p>
+                        <div>
+                              <h5>Cadastro / Ordem de Serviço</h5>
+                         </div>
+                        <nav>
                               <p><button form="cadastro" type="submit" class="btn btn-primary button">Criar Ordem de Serviço</button></p>
                               <p><button type="submit" class="btn btn-primary button">Limpar</button></p>
-                              <p><button type="submit" class="btn btn-primary button">Excluir</button></p>
-                              <p><a type="button" class="btn btn-primary button" th:href="@{/login}" >SAIR</a></p>
+                              <p><a type="button" class="btn btn-primary button"  th:href="@{/'/incluirOrcamento?id='+0}">VOLTAR</a></p>
                          </nav>
                     </div>
                     <div>
-                        
+                        <h5>Dados do Veiculo:</h5>
+                         <hr>
+                         <form>
+                              <div class="container mt-3">
+                                   <div class="row">
+                                        <div class="col-sm-6">
+                                             <h5>Veiculo:</h5>
+                                             <input type="text" class="descricao inbox" th:field="${veiculo.modelo}">
+                                             <h5>Km anterior:</h5>
+                                             <input type="text" class="descricao inbox" th:field="${veiculo.hodometro}">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <h5>Placa:</h5>
+                                             <input type="text" class="descricao inbox" th:field="${veiculo.placa}"> 
+                                            
+                                             <input type="hidden" th:field="${veiculo.idVeiculo}">
+                                        </div>
+                                   </div>
+                              </div>
+                         </form>
+                         <h5>Orçamento:</h5>
+                         <hr>
                          <form id="cadastro" th:action="@{/guardarOs}" method="POST" th:object="${ordemServico}">
                               <div class="container mt-3">
                                    <div class="row">
-                                        <div class="col-sm-4">
-                                             <h5>Placa:</h5>
-                                             <input type="text" class="descricao inbox" th:field="${veiculo.placa}">
+                                        <div class="col-sm-6">
+                                             <h5>Km Atual:</h5>
+                                             <input type="text" class="descricao inbox" th:field="${ordemServico.hodometroAtual}">
                                              <h5>OS:</h5>
                                              <input type="text" class="descricao inbox" th:field="${ordemServico.idOs}">
-                                             <input type="hidden" th:field="${veiculo.idVeiculo}">
                                         </div>
-                                        <div class="col-sm-4">
-                                             <h5>Km anterior:</h5>
-                                             <input type="text" class="descricao inbox" th:field="${veiculo.hodometro}">
+                                        <div class="col-sm-6">
+                                             
                                              <h5>Data serviço:</h5>
-                                             <input type="text" class="descricao inbox" >
-                                        </div>
-                                        <div class="col-sm-4">
-                                             <h5>Km atual:</h5>
-                                             <input type="text" class="descricao inbox" th:fiel="${ordemServico.hodometroAtual}">
+                                             <input type="text" class="descricao inbox">
+                                             <input type="hidden" th:field="${veiculo.idVeiculo}">
                                              <input type="hidden" th:field="${ordemServico.idOs}"/>
                                         </div>
                                    </div>
                               </div>
                          </form>
-                         <div style="overflow-y: scroll; height: 180px;" class="container mt-3">
-                              <table class="table table-edit"
-                                     <thead>
-                                        <tr>
-                                             <th>Peça</th>
-                                             <th>Quantidade</th>
-                                             <th>Valor unitário</th>
-                                             <th>Valor total</th>
-                                        </tr>
-                                   </thead>
-                                   <tbody>
-                                        <tr>
-                                             <td></td>
-                                             <td></td>
-                                             <td></td>
-                                             <td></td>
-                                        </tr>
-                                   </tbody>
-                              </table>
-                         </div>
-                    </div>
-                    <div>
-                         <form>
-                              <div class="menuDesc">
-                                   <h5>Descrição da peça:</h5>
-                                   <p><input type="text" class="descricao inbox"</p>
-                              </div>
-                              <div class="menuDesc">
-                                   <div class="grid-container3">
-                                        <div>
-                                             <h5>Valor Unitário:</h5>
-                                             <p><input type="text" class="descricao inbox"</p>
-                                        </div>
-                                        <div>
-                                             <h5>Quantidade:</h5>
-                                             <p><input type="text" class="descricao inbox"</p>
-                                        </div>
-                                        <div>
-                                             <h5>%:</h5>
-                                             <p><input type="text" class="descricao inbox"</p>
-                                        </div>
-                                   </div>
-                                   <div class="grid-container4">
-                                        <div>
-                                             <nav>
-                                                 <a type="submit" class="btn btn-primary buttonPeca">Adicionar</a>
-                                             </nav>
-                                        </div>
-                                        <div>
-                                             <nav>
-                                                  <a type="submit" class="btn btn-primary buttonPeca">Limpar</a>
-                                             </nav>
-                                        </div>
-                                   </div>
-                              </div>
-                         </form>
-                         <div style="width: 50%; margin: 10px">
-                              <div>
-                                   <h5>Valor Total:</h5>
-                                   <p><input type="text" class="descricao inbox"</p>
-                              </div>
-                              <div>
-                                   <nav>
-                                   <a type="submit" class="btn btn-primary buttonEx">Excluir</a>
-                                   </nav>
-                              </div>
-                         </div>
                     </div>
                </div>
                <div class="rodape">
@@ -155,8 +105,5 @@
                          </div>
                </div>
           </div>
-     </div>
-
-</div>
-</body>
+    </body>
 </html>
