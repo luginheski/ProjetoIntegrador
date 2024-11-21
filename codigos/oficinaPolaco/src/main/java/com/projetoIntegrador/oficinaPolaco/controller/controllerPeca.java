@@ -48,7 +48,6 @@ public class controllerPeca {
         Integer idPeca = Integer.parseInt(id);
 
         Dados.excluirPeca(idPeca);
-        System.out.println("id OS: " + idOs);
         return "redirect:/incluirPeca?id="+idOs;
     }
 }

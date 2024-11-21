@@ -54,7 +54,7 @@
                          </form>
                          <h5>Orçamento:</h5>
                          <hr>
-                         <form id="cadastro" th:action="@{/guardarOs}" method="POST" th:object="${ordemServico}">
+                         <form id="cadastro" th:action="@{'/guardarOs?id='+${veiculo.idVeiculo}}" method="POST" th:object="${ordemServico}">
                               <div class="container mt-3">
                                    <div class="row">
                                         <div class="col-sm-6">

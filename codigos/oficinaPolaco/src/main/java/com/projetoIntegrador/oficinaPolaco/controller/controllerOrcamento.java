@@ -33,9 +33,9 @@ public class controllerOrcamento {
     }
     
     @PostMapping("/guardarOs")
-    public String processarOs(Model model, @ModelAttribute Veiculo veiculo, @ModelAttribute OrdemServico os){
+    public String processarOs(Model model, @ModelAttribute Veiculo veiculo, @ModelAttribute OrdemServico os, @RequestParam String id){
         Dados.adicionaOs(os, veiculo);
-        return "redirect:/inserirCliente";
+        return "redirect:/incluirOrcamento?id="+id;
     }
       
     @GetMapping("/listarOs")

@@ -30,9 +30,9 @@ public class controllerVeiculo {
     }
     
     @PostMapping("/guardarVeiculo")
-    public String processarVeiculo(Model model, @ModelAttribute Veiculo veiculo, @ModelAttribute Cliente cliente){
+    public String processarVeiculo(Model model, @ModelAttribute Veiculo veiculo, @ModelAttribute Cliente cliente, @RequestParam String id){
         Dados.adicionaVeiculo(veiculo, cliente);
-        return "redirect:/inserirCliente";
+        return "redirect:/inserirVeiculo?id="+id;
     }
     
     @GetMapping("/listarVeiculo")

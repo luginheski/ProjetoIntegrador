@@ -41,9 +41,9 @@
                                    <div class="row">
                                         <div class="col-sm-6">
                                              <h5>Nome:</h5>
-                                             <input type="text" class="descricao inbox" th:field="${cliente.nome}">
+                                             <input type="text" class="descricao inbox" th:field="${cliente.nome}" id="nome" onblur="validaNome()">
                                              <h5>CPF:</h5>
-                                             <input id="cpf" type="text" class="descricao inbox" th:field="${cliente.cpf}">
+                                             <input id="cpf" type="text" class="descricao inbox" th:field="${cliente.cpf}" onblur="validaCpf()">
                                         </div>
                                         <div class="col-sm-6">
                                              <h5>RG:</h5>

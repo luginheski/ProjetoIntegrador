@@ -44,14 +44,14 @@
                                         <div class="col-sm-6">
                                              <h5>CPF:</h5>
                                              <input type="text" name="cpfCliente" class="descricao inbox" th:field="${cliente.cpf}">
-                                             <input type="hidden" th:field="${cliente.id}">
+                                        
                                         </div>
                                    </div>
                               </div>
                          </form>
                          <h5>Veiculo:</h5>
                          <hr>
-                         <form id="cadastro" th:action="@{/guardarVeiculo}" method="POST" th:object="${veiculo}">
+                         <form id="cadastro" th:action="@{'/guardarVeiculo?id='+${cliente.id}}" method="POST" th:object="${veiculo}">
                               <div class="container mt-3">
                                    <div class="row">
                                         <div class="col-sm-6">
@@ -70,7 +70,7 @@
                                              <h5>Hodometro / Km:</h5>
                                              <input type="text" class="descricao inbox" th:field="${veiculo.hodometro}">
                                              <input type="hidden" th:field="${veiculo.idVeiculo}"/>
-                                             <input type="hidden" th:field="${cliente.id}"/>
+                                             
                                         </div>
                                    </div>
                               </div>
