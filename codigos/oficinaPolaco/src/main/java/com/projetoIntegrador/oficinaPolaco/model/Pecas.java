@@ -17,6 +17,6 @@ public class Pecas {
     private double quantidade;
     private double valorTotal;
     private int porcento;
-    private OrdemServico OrdemServicoId;
+    private OrdemServico ordemServicoId;
     
 }

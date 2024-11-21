@@ -144,11 +144,10 @@ public class Dados {
             if (p.getOrdemServicoId().getIdOs() == idOrcamento) {
                 pecaEncontrada.add(p);
             }
-     
         }
         return pecaEncontrada;
     }
-    
+        
     public static void adicionaPeca(Pecas peca, OrdemServico os){
         peca.setIdPeca(listaPeca.size()+1);
         peca.setOrdemServicoId(os);
@@ -163,7 +162,6 @@ public class Dados {
                 pecaEncontrada = p;
             }
         }
-        
         return pecaEncontrada;
     }
     

@@ -19,7 +19,6 @@ public class controllerOrcamento {
     @GetMapping("/incluirOrcamento")
     public String mostraOS(Model model, @RequestParam String id){
         Integer idVeiculo = Integer.parseInt(id);
-        if(idVeiculo != 0){
         
         Veiculo veiculoEncontrado = new Veiculo();
         veiculoEncontrado = Dados.obtemVeiculo(idVeiculo);
@@ -31,9 +30,6 @@ public class controllerOrcamento {
         model.addAttribute("ordemServico", new OrdemServico());
         
         return "orcamentos";
-        }else{
-        return "orcamentos";
-        }
     }
     
     @PostMapping("/guardarOs")

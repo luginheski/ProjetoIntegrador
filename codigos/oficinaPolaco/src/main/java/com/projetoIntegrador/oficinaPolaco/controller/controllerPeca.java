@@ -17,8 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class controllerPeca {
     @GetMapping("/incluirPeca")
     public String mostraPeca(Model model, @RequestParam String id){
-        Integer idOrcamento = Integer.parseInt(id);
-        if(idOrcamento != 0){    
+        Integer idOrcamento = Integer.parseInt(id); 
             
         OrdemServico osEncontrada = new OrdemServico();
         osEncontrada = Dados.obtemOs(idOrcamento);
@@ -30,15 +29,12 @@ public class controllerPeca {
         model.addAttribute("peca", new Pecas());
         
         return "pecas";
-        }else{
-        return "pecas";
-        }
     }
     
     @PostMapping("/guardarPeca")
-    public String processarOs(Model model,@ModelAttribute OrdemServico os, @ModelAttribute Pecas peca){
+    public String processarOs(Model model,@ModelAttribute OrdemServico os, @ModelAttribute Pecas peca, @RequestParam String id){
         Dados.adicionaPeca(peca, os);
-        return "redirect:/inserirCliente";
+        return "redirect:/incluirPeca?id="+id;
     }
       
     @GetMapping("/listarPeca")
@@ -48,9 +44,11 @@ public class controllerPeca {
     }
     
     @GetMapping("/excluirPeca")
-    public String excluirPeca(Model model, @RequestParam String id) {
+    public String excluirPeca(Model model, @RequestParam String id, @RequestParam String idOs) {
         Integer idPeca = Integer.parseInt(id);
+
         Dados.excluirPeca(idPeca);
-        return "redirect:/inserirCliente";
+        System.out.println("id OS: " + idOs);
+        return "redirect:/incluirPeca?id="+idOs;
     }
 }
