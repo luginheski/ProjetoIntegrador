@@ -51,7 +51,7 @@
                          </form>
                          <h5>Peças:</h5>
                          <hr>
-                         <form id="cadastro" th:action="@{'/guardarPeca?id='+${ordemServico.idOs}}" method="POST" th:object="${peca}">
+                         <form id="cadastro" th:action="@{'/guardarPeca?id='+${ordemServico.idOs}}"method="POST" th:object="${peca}">
                               <div class="menuDesc">
                                    <h5>Descrição da peça:</h5>
                                    <p><input type="text" class="descricao inbox" th:field="${peca.descricao}"</p>
@@ -69,10 +69,6 @@
                                         <div>
                                              <h5>%:</h5>
                                              <p><input type="text" class="descricao inbox" th:field="${peca.porcento}" id="porcento"</p>
-                                             <h5>Valor Total</h5>
-                                             <div onkeyup="calculaPeca(this)">
-                                             <p><input id="valorT" type="text" class="descricao inbox" th:field="${peca.valorTotal}"</p>
-                                             </div>
                                              <input type="hidden" th:field="${ordemServico.idOs}">
                                              <input type="hidden" th:field="${peca.idPeca}"/>
                                         </div>

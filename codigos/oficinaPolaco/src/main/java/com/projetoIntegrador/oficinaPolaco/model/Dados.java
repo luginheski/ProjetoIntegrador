@@ -149,8 +149,16 @@ public class Dados {
     }
         
     public static void adicionaPeca(Pecas peca, OrdemServico os){
+        double qnt = peca.getQuantidade();
+        double vlUnt = peca.getValorUnt();
+        int porc = peca.getPorcento();
+        double total;
+        
+        total = (((vlUnt*porc)/100)+vlUnt)*qnt;
+        
         peca.setIdPeca(listaPeca.size()+1);
         peca.setOrdemServicoId(os);
+        peca.setValorTotal(total);
         
         listaPeca.add(peca);
     }

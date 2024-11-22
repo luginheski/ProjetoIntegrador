@@ -13,6 +13,7 @@ function calculaPeca(element){
     
     element.innerHTML = imprimir;
     element.className = 'descricao inbox';
+    
     alert("valor total: "+ imprimir);
 }
 
