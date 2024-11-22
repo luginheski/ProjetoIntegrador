@@ -1,3 +1,21 @@
+function calculaPeca(element){
+    let valorUnt = document.getElementById("valorUnt").value;
+    let qnt = document.getElementById("qnt").value;
+    let porcento = document.getElementById("porcento").value;
+    let valorTotal = 0;
+    
+    let valorUntF = parseFloat(valorUnt);
+    let qntF = parseFloat(qnt);
+    let porcentoF = parseFloat(porcento);
+    
+    valorTotal = (((valorUntF*porcentoF)/100)+valorUntF)*qntF;
+    let imprimir = valorTotal.toFixed(2).replace(".",",");
+    
+    element.innerHTML = imprimir;
+    element.className = 'descricao inbox';
+    alert("valor total: "+ imprimir);
+}
+
 function validaNome(){
     let nome = document.getElementById("nome").value;
     if(nome.length < 3){

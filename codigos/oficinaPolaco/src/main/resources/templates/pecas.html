@@ -2,7 +2,7 @@
 
 <html xmlns="w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title>Cadastro veiculo</title>
+        <title>Cadastro Peças</title>
         <link rel="icon" href="../imagens/veiculo.png" alt=""/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -60,17 +60,20 @@
                                    <div class="grid-container3">
                                         <div>
                                              <h5>Valor Unitário:</h5>
-                                             <p><input type="text" class="descricao inbox" th:field="${peca.valorUnt}"</p>
+                                             <p><input type="text" class="descricao inbox" th:field="${peca.valorUnt}" id="valorUnt"</p>
                                         </div>
                                         <div>
                                              <h5>Quantidade:</h5>
-                                             <p><input type="text" class="descricao inbox" th:field="${peca.quantidade}"</p>
+                                             <p><input type="text" class="descricao inbox" th:field="${peca.quantidade}" id="qnt"</p>
                                         </div>
                                         <div>
                                              <h5>%:</h5>
-                                             <p><input type="text" class="descricao inbox" th:fieldd="${peca.porcento}"</p>
+                                             <p><input type="text" class="descricao inbox" th:field="${peca.porcento}" id="porcento"</p>
+                                             <h5>Valor Total</h5>
+                                             <div onkeyup="calculaPeca(this)">
+                                             <p><input id="valorT" type="text" class="descricao inbox" th:field="${peca.valorTotal}"</p>
+                                             </div>
                                              <input type="hidden" th:field="${ordemServico.idOs}">
-                                             
                                              <input type="hidden" th:field="${peca.idPeca}"/>
                                         </div>
                                    </div>
@@ -109,5 +112,6 @@
                 </div>
         </div>
         <script src="../bootstrap/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+        <script src="../js/script.js" type="text/javascript"></script>
     </body>
 </html>
