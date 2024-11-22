@@ -49,7 +49,7 @@
                                              <h5>RG:</h5>
                                              <input type="text" class="descricao inbox" th:field="${cliente.rg}">
                                              <h5>Telefone:</h5>
-                                             <input type="text" class="descricao inbox" th:field="${cliente.telefone}">
+                                             <input type="text" class="descricao inbox" th:field="${cliente.telefone}" id="telefone" onblur="validaTelefone()">
                                         </div>
                                    </div>
                               </div>
@@ -61,19 +61,19 @@
                                    <div class="row">
                                         <div class="col-sm-6">
                                              <h5>Rua:</h5>
-                                             <input type="text" class="descricao inbox" th:field="${cliente.rua}">
+                                             <input type="text" class="descricao inbox" th:field="${cliente.rua}" id="rua" onblur="validaRua()">
                                              <h5>CEP:</h5>
-                                             <input type="text" class="descricao inbox" th:field="${cliente.cep}">
+                                             <input type="text" class="descricao inbox" th:field="${cliente.cep}" id="cep" onblur="validaCep()">
                                              <h5>Cidade:</h5>
-                                             <input type="text" class="descricao inbox" th:field="${cliente.cidade}">
+                                             <input type="text" class="descricao inbox" th:field="${cliente.cidade}" id="cidade" onblur="validaCidade()">
                                         </div>
                                         <div class="col-sm-6">
                                              <h5>Nº:</h5>
-                                             <input type="text" class="descricao inbox" th:field="${cliente.numero}">
+                                             <input type="text" class="descricao inbox" th:field="${cliente.numero}" id="numero" onblur="validaNumero()">
                                              <h5>Bairro:</h5>
-                                             <input type="text" class="descricao inbox" th:field="${cliente.bairro}">
+                                             <input type="text" class="descricao inbox" th:field="${cliente.bairro}" id="bairro" onblur="validaBairro()">
                                              <h5>Estado:</h5>
-                                             <input type="text" class="descricao inbox" th:field="${cliente.estado}">
+                                             <input type="text" class="descricao inbox" th:field="${cliente.estado}" id="estado" onblur="validaEstado()">
                                              <input type="hidden" th:field="${cliente.id}"/>
                                         </div>
                                    </div>
