@@ -58,7 +58,7 @@
                                              <h5>Fabricante:</h5>
                                              <input type="text" class="descricao inbox" th:field="${veiculo.fabricante}" required>
                                              <h5>Ano fabricação:</h5>
-                                             <input type="text" class="descricao inbox" th:field="${veiculo.anoFabricacao}" required name="numeros" pattern="[0-9]+$">
+                                             <input type="number" class="descricao inbox" th:field="${veiculo.anoFabricacao}" required name="numeros" pattern="[0-9]+$">
                                              <h5>Placa:</h5>
                                              <input type="text" class="descricao inbox" th:field="${veiculo.placa}" required>
                                         </div>
@@ -66,9 +66,9 @@
                                              <h5>Modelo:</h5>
                                              <input type="text" class="descricao inbox" th:field="${veiculo.modelo}"required>
                                              <h5>Ano modelo:</h5>
-                                             <input type="text" class="descricao inbox" th:field="${veiculo.anoModelo}" required>
+                                             <input type="number" class="descricao inbox" th:field="${veiculo.anoModelo}" required>
                                              <h5>Hodometro / Km:</h5>
-                                             <input type="text" class="descricao inbox" th:field="${veiculo.hodometro}" required>
+                                             <input type="number" class="descricao inbox" th:field="${veiculo.hodometro}" required>
                                              <input type="hidden" th:field="${veiculo.idVeiculo}"/>
                                              
                                         </div>
