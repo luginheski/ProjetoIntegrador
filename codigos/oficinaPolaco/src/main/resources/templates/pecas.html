@@ -11,6 +11,9 @@
         <link href="../css/orcamentos.css" rel="stylesheet" type="text/css"/>
         <link href="../css/cliente.css" rel="stylesheet" type="text/css"/>
         <script src="../bootstrap/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+          <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     </head>
     <body>
         <div class="principal">
@@ -54,7 +57,7 @@
                          <form id="cadastro" th:action="@{'/guardarPeca?id='+${ordemServico.idOs}}"method="POST" th:object="${peca}">
                               <div class="menuDesc">
                                    <h5>Descrição da peça:</h5>
-                                   <p><input type="text" class="descricao inbox" th:field="${peca.descricao}"</p>
+                                   <p><input type="text" class="descricao inbox" th:field="${peca.descricao}" id="desc"</p>
                               </div>
                               <div class="menuDesc">
                                    <div class="grid-container3">

@@ -11,6 +11,9 @@
           <link href="../css/orcamentos.css" rel="stylesheet" type="text/css"/>
           <link href="../css/cliente.css" rel="stylesheet" type="text/css"/>
           <script src="../bootstrap/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+          <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+          <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
      </head>
      <body>
           <div class="principal">
@@ -26,7 +29,7 @@
                               <h5>Cadastro de Veiculo:</h5>
                          </div>
                         <nav>
-                            <p><button type="submit" form="cadastroVeiculo" class="btn btn-primary button">Salvar / Veiculo</button></p>
+                            <p><button type="submit" form="cadastro" class="btn btn-primary button">Salvar / Veiculo</button></p>
                             <p><button type="submit" class="btn btn-primary button">Limpar</button></p>
                             <p><a type="button" class="btn btn-primary button" th:href="@{/inserirCliente}">Voltar</a></p>
                          </nav>
@@ -51,24 +54,24 @@
                          </form>
                          <h5>Veiculo:</h5>
                          <hr>
-                         <form id="cadastroVeiculo" th:action="@{'/guardarVeiculo?id='+${cliente.id}}" method="POST" th:object="${veiculo}">
+                         <form id="cadastro" th:action="@{'/guardarVeiculo?id='+${cliente.id}}" method="POST" th:object="${veiculo}">
                               <div class="container mt-3">
                                    <div class="row">
                                         <div class="col-sm-6">
                                              <h5>Fabricante:</h5>
-                                             <input type="text" class="descricao inbox" th:field="${veiculo.fabricante}" required>
+                                             <input type="text" class="descricao inbox" th:field="${veiculo.fabricante}" id="fabricante">
                                              <h5>Ano fabricação:</h5>
-                                             <input type="number" class="descricao inbox" th:field="${veiculo.anoFabricacao}" required name="numeros" pattern="[0-9]+$">
+                                             <input type="number" class="descricao inbox" th:field="${veiculo.anoFabricacao}" id="anoFab">
                                              <h5>Placa:</h5>
-                                             <input type="text" class="descricao inbox" th:field="${veiculo.placa}" required>
+                                             <input type="text" class="descricao inbox" th:field="${veiculo.placa}" id="placa">
                                         </div>
                                         <div class="col-sm-6">
                                              <h5>Modelo:</h5>
-                                             <input type="text" class="descricao inbox" th:field="${veiculo.modelo}"required>
+                                             <input type="text" class="descricao inbox" th:field="${veiculo.modelo}" id="modelo">
                                              <h5>Ano modelo:</h5>
-                                             <input type="number" class="descricao inbox" th:field="${veiculo.anoModelo}" required>
+                                             <input type="number" class="descricao inbox" th:field="${veiculo.anoModelo}" id="anoModelo">
                                              <h5>Hodometro / Km:</h5>
-                                             <input type="number" class="descricao inbox" th:field="${veiculo.hodometro}" required>
+                                             <input type="number" class="descricao inbox" th:field="${veiculo.hodometro}" id="hodometro">
                                              <input type="hidden" th:field="${veiculo.idVeiculo}"/>
                                              
                                         </div>
@@ -109,5 +112,6 @@
                          </div>
                </div>
           </div>
+         <script src="../js/script.js" type="text/javascript"></script>
      </body>
 </html>
