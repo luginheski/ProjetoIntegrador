@@ -1,38 +1,70 @@
-function calculaPeca(element){
-    let valorUnt = document.getElementById("valorUnt").value;
-    let qnt = document.getElementById("qnt").value;
-    let porcento = document.getElementById("porcento").value;
-    let valorTotal = 0;
-    
-    let valorUntF = parseFloat(valorUnt);
-    let qntF = parseFloat(qnt);
-    let porcentoF = parseFloat(porcento);
-    
-    valorTotal = (((valorUntF*porcentoF)/100)+valorUntF)*qntF;
-    let imprimir = valorTotal.toFixed(2).replace(".",",");
-    
-    element.innerHTML = imprimir;
-    element.className = 'descricao inbox';
-    
-    alert("valor total: "+ imprimir);
-}
+$("#cadastroCliente").validate({
+    rules: {
+        nome: {
+            required: true
+        },
+        cpf: {
+            required: true,
+            maxlength: 14
+        },
+        rg: {
+            required: true
+        },
+        telefone: {
+            required: true
+        },
+        rua: {
+            required: true
+        },
+        cep: {
+            required: true
+        },
+        cidade:{
+            required: true
+        },
+        estado:{
+            required: true
+        },
+        numero:{
+            required: true
+        }
+    },
+    messages: {
+        nome: {
+            required: "Campo nome é obrigatório"
+        },
+        cpf: {
+            required: "Campo cpf é obrigatório",
+            maxlength: "Deve ter no maximo 14 caracteres" 
+        },
+        rg: {
+            required: "Rg é obrigatório"
+        },
+        telefone: {
+            required: "Informe um telefone"
+        },
+        rua: {
+            required: "Rua obrigatório"
+        },
+        cep: {
+            required: "Informe o CEP"
+        },
+        cidade:{
+            required: "Campo Obrigatório"
+        },
+        estado:{
+            required: "Informe o estado"
+        },
+        numero:{
+            required: "Digite um número"
+        }
+    }
+});
 
-var input = document.getElementById('nome');
-    input.oninvalid = function(event) {
-    event.target.setCustomValidity('O nome de usuário deve conter apenas letras no máximo com 50 caracteres. ex: Rodrigo');
-};
-
-var input = document.getElementById('cpf');
-    input.oninvalid = function(event) {
-    event.target.setCustomValidity('O CPF deve conter apenas numeros no máximo com 11 caracteres. ex: 000.111.222-33');
-};
-
-var input = document.getElementById('rg');
-    input.oninvalid = function(event) {
-    event.target.setCustomValidity('O RG deve conter apenas números ');
-};
-
-var input = document.getElementById('telefone');
-    input.oninvalid = function(event) {
-    event.target.setCustomValidity('O telefone deve conter apenas numeros no máximo com 11 caracteres. ex: (41)99999-8888');
-};
+$(document).ready(function () {
+            $('#telefone').mask('(00) 00000-0000');
+            $('#cep').mask('00000-000');
+            $('#cpf').mask('000.000.000-00');
+            $('#cnpj').mask('00.000.000/0000-00');
+            $('#data').mask('00/00/0000');
+        });

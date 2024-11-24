@@ -11,6 +11,9 @@
           <link href="../css/orcamentos.css" rel="stylesheet" type="text/css"/>
           <link href="../css/cliente.css" rel="stylesheet" type="text/css"/>
           <script src="../bootstrap/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+          <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+          <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
           </head>
      <body>
           <div class="principal">
@@ -26,7 +29,7 @@
                               <h5>Cadastro de clientes:</h5>
                          </div>
                          <nav>
-                              <p><button type="submit" form="cadastro" class="btn btn-primary button" >Salvar</button></p>
+                              <p><button type="submit" form="cadastroCliente" class="btn btn-primary button" >Salvar</button></p>
                               <p><button type="submit" class="btn btn-primary button">Limpar</button></p>
                               <p><a type="button" class="btn btn-primary button" th:href="@{/login}" >Sair</a></p>
                          </nav>
@@ -34,20 +37,20 @@
                     <div>
                          <h5>Dados pessoais:</h5>
                          <hr>
-                         <form id="cadastro" th:action="@{/cadastroCliente}" method="POST" th:object="${cliente}">
+                         <form id="cadastroCliente" th:action="@{/cadastroCliente}" method="POST" th:object="${cliente}">
                               <div class="container mt-3">
                                    <div class="row">
                                         <div class="col-sm-6">
                                              <h5>Nome:</h5>
-                                             <input type="text" class="descricao inbox" th:field="${cliente.nome}" id="nome" required name="nome" placeholder="Nome do cliente" pattern="[a-z]{1,50}+$">
+                                             <input type="text" class="descricao inbox" th:field="${cliente.nome}" id="nome" placeholder="Nome do cliente">
                                              <h5>CPF:</h5>
-                                             <input id="cpf" name="cpf" type="text" class="descricao inbox" th:field="${cliente.cpf}" required placeholder="xxx.xxx.xxx-xx" pattern="=[0-9]{1-11}+$">
+                                             <input id="cpf" name="cpf" type="text" class="descricao inbox" th:field="${cliente.cpf}" placeholder="xxx.xxx.xxx-xx">
                                         </div>
                                         <div class="col-sm-6">
                                              <h5>RG:</h5>
-                                             <input id="rg" type="text" class="descricao inbox" th:field="${cliente.rg}" required pattern="[0-9]+$">
+                                             <input id="rg" type="text" class="descricao inbox" th:field="${cliente.rg}">
                                              <h5>Telefone:</h5>
-                                             <input type="text" class="descricao inbox" th:field="${cliente.telefone}" id="telefone" required placeholder="(xx)xxxxx-xxxx" pattern="[0-9]+$">
+                                             <input type="text" class="descricao inbox" th:field="${cliente.telefone}" id="telefone" placeholder="(xx)xxxxx-xxxx">
                                         </div>
                                    </div>
                               </div>
@@ -61,17 +64,17 @@
                                              <h5>Rua:</h5>
                                              <input type="text" class="descricao inbox" th:field="${cliente.rua}" id="rua" >
                                              <h5>CEP:</h5>
-                                             <input type="text" class="descricao inbox" th:field="${cliente.cep}" id="cep" >
+                                             <input type="text" class="descricao inbox" th:field="${cliente.cep}" id="cep" placeholder="xx.xxx-xxx">
                                              <h5>Cidade:</h5>
                                              <input type="text" class="descricao inbox" th:field="${cliente.cidade}" id="cidade" >
                                         </div>
                                         <div class="col-sm-6">
                                              <h5>Nº:</h5>
-                                             <input type="text" class="descricao inbox" th:field="${cliente.numero}" id="numero" >
+                                             <input type="text" class="descricao inbox" th:field="${cliente.numero}" id="numero" placeholder="0123">
                                              <h5>Bairro:</h5>
                                              <input type="text" class="descricao inbox" th:field="${cliente.bairro}" id="bairro" >
                                              <h5>Estado:</h5>
-                                             <input type="text" class="descricao inbox" th:field="${cliente.estado}" id="estado" >
+                                             <input type="text" class="descricao inbox" th:field="${cliente.estado}" id="estado" placeholder="XX">
                                              <input type="hidden" th:field="${cliente.id}"/>
                                         </div>
                                    </div>

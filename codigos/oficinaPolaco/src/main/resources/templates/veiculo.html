@@ -26,7 +26,7 @@
                               <h5>Cadastro de Veiculo:</h5>
                          </div>
                         <nav>
-                            <p><button type="submit" form="cadastro" class="btn btn-primary button">Salvar / Veiculo</button></p>
+                            <p><button type="submit" form="cadastroVeiculo" class="btn btn-primary button">Salvar / Veiculo</button></p>
                             <p><button type="submit" class="btn btn-primary button">Limpar</button></p>
                             <p><a type="button" class="btn btn-primary button" th:href="@{/inserirCliente}">Voltar</a></p>
                          </nav>
@@ -51,7 +51,7 @@
                          </form>
                          <h5>Veiculo:</h5>
                          <hr>
-                         <form id="cadastro" th:action="@{'/guardarVeiculo?id='+${cliente.id}}" method="POST" th:object="${veiculo}">
+                         <form id="cadastroVeiculo" th:action="@{'/guardarVeiculo?id='+${cliente.id}}" method="POST" th:object="${veiculo}">
                               <div class="container mt-3">
                                    <div class="row">
                                         <div class="col-sm-6">
