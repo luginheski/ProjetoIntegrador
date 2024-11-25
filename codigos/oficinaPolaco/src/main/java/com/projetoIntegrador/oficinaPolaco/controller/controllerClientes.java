@@ -2,7 +2,6 @@ package com.projetoIntegrador.oficinaPolaco.controller;
 
 import com.projetoIntegrador.oficinaPolaco.model.Cliente;
 import com.projetoIntegrador.oficinaPolaco.model.ClienteService;
-import com.projetoIntegrador.oficinaPolaco.model.Dados;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

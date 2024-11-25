@@ -49,14 +49,14 @@
                                         <div class="col-sm-6">
                                             <h5>Placa:</h5>
                                              <input type="text" class="descricao inbox" th:field="${veiculo.placa}">
-                                             <input type="hidden" th:field="${veiculo.idVeiculo}">
+                                             <input type="hidden" th:field="${veiculo.id}">
                                         </div>
                                    </div>
                               </div>
                          </form>
                          <h5>Orçamento:</h5>
                          <hr>
-                         <form id="cadastro" th:action="@{'/guardarOs?id='+${veiculo.idVeiculo}}" method="POST" th:object="${ordemServico}">
+                         <form id="cadastro" th:action="@{'/guardarOs?id='+${veiculo.id}}" method="POST" th:object="${ordemServico}">
                               <div class="container mt-3">
                                    <div class="row">
                                         <div class="col-sm-6">
@@ -66,8 +66,8 @@
                                         <div class="col-sm-6">
                                               <h5>Data serviço:</h5>
                                              <input type="date" class="descricao inbox" th:field="${ordemServico.dataServico}">
-                                             <input type="hidden" th:field="${veiculo.idVeiculo}">
-                                             <input type="hidden" th:field="${ordemServico.idOs}"/>
+                                             <input type="hidden" th:field="${veiculo.id}">
+                                             <input type="hidden" th:field="${ordemServico.id}"/>
                                         </div>
                                    </div>
                               </div>
@@ -89,14 +89,14 @@
                                    </thead>
                                    <tbody>
                                         <tr th:each="ordemServico : ${ordemServicos}">
-                                             <td th:text="${ordemServico.idOs}"></td>
+                                             <td th:text="${ordemServico.id}"></td>
                                              <td th:text="${veiculo.placa}"></td>
                                              <td th:text="${veiculo.modelo}"></td>
                                              <td th:text="${ordemServico.hodometroAtual}"></td>
                                              <td th:text="${ordemServico.dataServico}"></td>
                                              <td>
-                                               <a class="btn btn-outline-danger btn-sm" th:href="@{'/excluirOs?id='+${ordemServico.idOs}}">Exclir</a>
-                                               <a class="btn btn-outline-info btn-sm" th:href="@{'/incluirPeca?id='+${ordemServico.idOs}}">Peças</a>
+                                               <a class="btn btn-outline-danger btn-sm" th:href="@{'/excluirOs?id='+${ordemServico.id}}">Exclir</a>
+                                               <a class="btn btn-outline-info btn-sm" th:href="@{'/incluirPeca?id='+${ordemServico.id}}">Peças</a>
                                              </td>
                                         </tr>
                                    </tbody>

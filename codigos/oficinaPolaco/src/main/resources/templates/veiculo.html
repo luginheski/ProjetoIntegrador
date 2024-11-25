@@ -72,7 +72,7 @@
                                              <input type="number" class="descricao inbox" th:field="${veiculo.anoModelo}" id="anoModelo">
                                              <h5>Hodometro / Km:</h5>
                                              <input type="number" class="descricao inbox" th:field="${veiculo.hodometro}" id="hodometro">
-                                             <input type="hidden" th:field="${veiculo.idVeiculo}"/>
+                                             <input type="hidden" th:field="${veiculo.id}"/>
                                              
                                         </div>
                                    </div>
@@ -96,15 +96,15 @@
                                    </thead>
                                    <tbody>
                                         <tr th:each="veiculo : ${veiculos}">
-                                             <td th:text="${veiculo.idVeiculo}"></td>
+                                             <td th:text="${veiculo.id}"></td>
                                              <td th:text="${veiculo.fabricante}"></td>
                                              <td th:text="${veiculo.modelo}"></td>
                                              <td th:text="${veiculo.anoFabricacao}"></td>
                                              <td th:text="${veiculo.anoModelo}"></td>
                                              <td th:text="${veiculo.hodometro}"></td>
                                              <td>
-                                                <a class="btn btn-outline-danger btn-sm" th:href="@{'/excluirVeiculo?id='+${veiculo.idVeiculo}}">Exclir</a>
-                                                <a class="btn btn-outline-info btn-sm" th:href="@{'/incluirOrcamento?id='+${veiculo.idVeiculo}}">OS</a>
+                                                <a class="btn btn-outline-danger btn-sm" th:href="@{'/excluirVeiculo?id='+${veiculo.id}}">Exclir</a>
+                                                <a class="btn btn-outline-info btn-sm" th:href="@{'/incluirOrcamento?id='+${veiculo.id}}">OS</a>
                                              </td>
                                         </tr>
                                    </tbody>

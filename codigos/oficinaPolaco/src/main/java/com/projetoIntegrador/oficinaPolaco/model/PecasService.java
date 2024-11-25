@@ -16,7 +16,13 @@ public class PecasService {
     }
     
     public Pecas criarPeca(Pecas peca, OrdemServico os){
+        double qnt = peca.getQuantidade();
+        double vlUnt = peca.getValorUnt();
+        int porc = peca.getPorcento();
+        double total;
+        total = (((vlUnt*porc)/100)+vlUnt)*qnt;
         peca.setId(null);
+        peca.setValorTotal(total);
         peca.setOrdemServico(os);
         pecasRepository.save(peca);
         return peca;

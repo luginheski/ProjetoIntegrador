@@ -42,7 +42,7 @@
                                    <div class="row">
                                         <div class="col-sm-6">
                                              <h5>ID OS:</h5>
-                                             <input type="text" class="descricao inbox" th:field="${ordemServico.idOs}">
+                                             <input type="text" class="descricao inbox" th:field="${ordemServico.id}">
                                         </div>
                                         <div class="col-sm-6">
                                              <h5>Data Serviço:</h5>
@@ -54,7 +54,7 @@
                          </form>
                          <h5>Peças:</h5>
                          <hr>
-                         <form id="cadastro" th:action="@{'/guardarPeca?id='+${ordemServico.idOs}}"method="POST" th:object="${peca}">
+                         <form id="cadastro" th:action="@{'/guardarPeca?id='+${ordemServico.id}}"method="POST" th:object="${peca}">
                               <div class="menuDesc">
                                    <h5>Descrição da peça:</h5>
                                    <p><input type="text" class="descricao inbox" th:field="${peca.descricao}" id="desc"</p>
@@ -72,8 +72,8 @@
                                         <div>
                                              <h5>%:</h5>
                                              <p><input type="text" class="descricao inbox" th:field="${peca.porcento}" id="porcento"</p>
-                                             <input type="hidden" th:field="${ordemServico.idOs}">
-                                             <input type="hidden" th:field="${peca.idPeca}"/>
+                                             <input type="hidden" th:field="${ordemServico.id}">
+                                             <input type="hidden" th:field="${peca.id}"/>
                                         </div>
                                    </div>
                                    
@@ -96,13 +96,13 @@
                             </thead>
                                 <tbody>
                                     <tr th:each="peca : ${pecas}">
-                                        <td th:text="${peca.idPeca}"></td>
+                                        <td th:text="${peca.id}"></td>
                                         <td th:text="${peca.descricao}"></td>
                                         <td th:text="${peca.quantidade}"></td>
                                         <td th:text="${peca.valorUnt}"></td>
                                         <td th:text="${peca.valorTotal}"></td>
                                         <td>
-                                            <a class="btn btn-outline-danger btn-sm" th:href="@{'/excluirPeca?id='+${peca.idPeca}+'&idOs='+${ordemServico.idOs}}">Exclir</a>
+                                            <a class="btn btn-outline-danger btn-sm" th:href="@{'/excluirPeca?id='+${peca.id}+'&idOs='+${ordemServico.id}}">Exclir</a>
                                         </td> 
                                     </tr>
                                 </tbody>
