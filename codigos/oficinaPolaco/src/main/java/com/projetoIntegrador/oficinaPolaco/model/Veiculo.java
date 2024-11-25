@@ -16,8 +16,7 @@ public class Veiculo {
     private String modelo;
     private int anoFabricacao;
     private int anoModelo;
-    private int hodometroAnterior;
-    private int hodometro;
+    private Integer hodometro;
     private String placa;
     private Cliente idCliente;
 }

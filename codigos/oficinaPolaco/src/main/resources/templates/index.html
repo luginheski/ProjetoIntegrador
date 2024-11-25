@@ -1,43 +1,126 @@
 <!DOCTYPE html>
 
 <html xmlns="w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <title>Login do Sistema</title>
-        <link rel="icon" href="../imagens/technician.png" alt=""/>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="../css/login.css" rel="stylesheet" type="text/css"/>
-    </head>
-    <body>
-        <div class="principal">
-            <div class="logo">
-                <h1>OFICINA DO POLACO
-                    <img src="../imagens/mecanico.gif" alt="" class="img-esquerda"/>
-                    <img src="../imagens/motor.gif" alt="" class="img-direita"/>
-                </h1>
-            </div>
-            <center>
-                <div class="login">
-                    <img class="img-login" src="../imagens/motorGarage.jpg" alt=""/>   
-                    <form>
-                        <div class="mb-3"> 
-                            <label for="txtNome" class="text">Nome:</label> 
-                            <input id="txtNome" class="form-control" type="text"> 
-                        </div> 
-                        <div class="mb-3"> 
-                            <label for="txtSenha" class="text">Senha:</label> 
-                            <input id="txtSenha" class="form-control" type="password"> 
-                        </div> 
-                         <nav><div class="d-grid"> 
-                            <a type="submit" class="btn btn-primary btn-block" th:href="@{/inserirCliente}">Acessar</a>
-                              </div>
+     <head>
+          <title>Cadastro cliente</title>
+          <link rel="icon" href="../imagens/cliente.png" alt=""/>
+          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+          <link href="../css/login.css" rel="stylesheet" type="text/css"/>
+          <link href="../css/orcamentos.css" rel="stylesheet" type="text/css"/>
+          <link href="../css/cliente.css" rel="stylesheet" type="text/css"/>
+          <script src="../bootstrap/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+          <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+          <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+          </head>
+     <body>
+          <div class="principal">
+               <div class="logo">
+                    <h1>OFICINA DO POLACO
+                         <img src="../imagens/mecanico.gif" alt="" class="img-esquerda"/>
+                         <img src="../imagens/motor.gif" alt="" class="img-direita"/>
+                    </h1>
+               </div>
+               <div class="grid-container-cliente">
+                    <div>
+                         <div>
+                              <h5>Cadastro de clientes:</h5>
+                         </div>
+                         <nav>
+                              <p><button type="submit" form="cadastro" class="btn btn-primary button" >Salvar</button></p>
+                              <p><button type="submit" class="btn btn-primary button">Limpar</button></p>
                          </nav>
-                        <div><h6>esqueceu a senha!</h6></div>
-                    </form>
-                </div>
-            </center>
-        </div>
-        <script src="../bootstrap/js/bootstrap.bundle.min.js" type="text/javascript"></script>
-    </body>
+                    </div>
+                    <div>
+                         <h5>Dados pessoais:</h5>
+                         <hr>
+                         <form id="cadastro" th:action="@{/cadastroCliente}" method="POST" th:object="${cliente}">
+                              <div class="container mt-3">
+                                   <div class="row">
+                                        <div class="col-sm-6">
+                                             <h5>Nome:</h5>
+                                             <input type="text" class="descricao inbox" th:field="${cliente.nome}" id="nome" placeholder="Nome do cliente">
+                                             <h5>CPF:</h5>
+                                             <input id="cpf" name="cpf" type="text" class="descricao inbox" th:field="${cliente.cpf}" placeholder="xxx.xxx.xxx-xx">
+                                        </div>
+                                        <div class="col-sm-6">
+                                             <h5>RG:</h5>
+                                             <input id="rg" type="text" class="descricao inbox" th:field="${cliente.rg}">
+                                             <h5>Telefone:</h5>
+                                             <input type="text" class="descricao inbox" th:field="${cliente.telefone}" id="telefone" placeholder="(xx)xxxxx-xxxx">
+                                        </div>
+                                   </div>
+                              </div>
+                         
+                         <h5>Endereço:</h5>
+                         <hr>
+                         
+                              <div class="container mt-3">
+                                   <div class="row">
+                                        <div class="col-sm-6">
+                                             <h5>Rua:</h5>
+                                             <input type="text" class="descricao inbox" th:field="${cliente.rua}" id="rua" >
+                                             <h5>CEP:</h5>
+                                             <input type="text" class="descricao inbox" th:field="${cliente.cep}" id="cep" placeholder="xx.xxx-xxx">
+                                             <h5>Cidade:</h5>
+                                             <input type="text" class="descricao inbox" th:field="${cliente.cidade}" id="cidade" >
+                                        </div>
+                                        <div class="col-sm-6">
+                                             <h5>Nº:</h5>
+                                             <input type="text" class="descricao inbox" th:field="${cliente.numero}" id="numero" placeholder="0123">
+                                             <h5>Bairro:</h5>
+                                             <input type="text" class="descricao inbox" th:field="${cliente.bairro}" id="bairro" >
+                                             <h5>Estado:</h5>
+                                             <input type="text" class="descricao inbox" th:field="${cliente.estado}" id="estado" placeholder="XX">
+                                             <input type="hidden" th:field="${cliente.id}"/>
+                                        </div>
+                                   </div>
+                              </div>
+                         </form>
+                    </div>
+
+               </div>
+               <div class="rodape">
+                    <div style="overflow-y: scroll; max-height: 230px;" class="container mt-3">
+                         <table class="table table-edit"
+                                     <thead>
+                                        <tr>
+                                            <th type="hidden">Id</th>
+                                             <th>Nome</th>
+                                             <th>CPF</th>
+                                             <th>Telefone</th>
+                                             <th>Rua</th>
+                                             <th>Nº</th>
+                                             <th>Cep</th>
+                                             <th>Cidade</th>
+                                             <th>Estado</th>
+                                             <th>Opções</th>
+                                        </tr>
+                                   </thead>
+                                   <tbody>
+                                        <tr th:each="cliente : ${clientes}">
+                                            <td type="hidden" th:text="${cliente.id}"></td>
+                                             <td th:text="${cliente.nome}"></td>
+                                             <td th:text="${cliente.cpf}"></td>
+                                             <td th:text="${cliente.telefone}"></td>
+                                             <td th:text="${cliente.rua}"></td>
+                                             <td th:text="${cliente.numero}"></td>
+                                             <td th:text="${cliente.cep}"></td>
+                                             <td th:text="${cliente.cidade}"></td>
+                                             <td th:text="${cliente.estado}"></td>
+                                             <td>
+                                                <a class="btn btn-outline-warning btn-sm" th:href="@{/alterar-cliente(id=${cliente.id})}">Editar</a>
+                                                <a class="btn btn-outline-danger btn-sm" th:href="@{/excluir-cliente(id=${cliente.id})}">Exclir</a>
+                                                <a class="btn btn-outline-info btn-sm" th:href="@{/inserirVeiculo(id=${cliente.id})}">Veículos</a>
+                                             </td>
+                                        </tr>
+                                   </tbody>
+                              </table>
+                         </div>
+               </div>
+          </div>
+         <script src="../js/script.js" type="text/javascript"></script>
+     </body>
 </html>

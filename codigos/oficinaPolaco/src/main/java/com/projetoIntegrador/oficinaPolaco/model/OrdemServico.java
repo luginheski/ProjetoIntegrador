@@ -12,8 +12,8 @@ import lombok.NoArgsConstructor;
 public class OrdemServico {
         
     private Integer idOs;
-    private int hodometroAntigo;
-    private int hodometroAtual;    
+    private Integer hodometroAntigo;
+    private Integer hodometroAtual;    
     private Date dataServico;
     private Veiculo velId;
 

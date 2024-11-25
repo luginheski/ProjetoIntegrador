@@ -11,12 +11,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class controllerClientes {
+    
+    @GetMapping("/")
+    public String index(){
+        return "redirect:/inserirCliente";
+    }
         
     @GetMapping("/inserirCliente")
     public String mostraCadastro(Model model) {
             model.addAttribute("cliente", new Cliente());
             model.addAttribute("clientes", Dados.listarClientes());
-        return "cliente";
+        return "index";
     }
   
     @PostMapping("/cadastroCliente")
@@ -46,6 +51,6 @@ public class controllerClientes {
     public String AlterarCliente(Model model, @RequestParam String id, @ModelAttribute Cliente cliente) {
         Integer idCliente = Integer.valueOf(id);
         model.addAttribute("cliente", Dados.obtemCliente(idCliente));
-        return "cliente";
+        return "index";
     }
 }
