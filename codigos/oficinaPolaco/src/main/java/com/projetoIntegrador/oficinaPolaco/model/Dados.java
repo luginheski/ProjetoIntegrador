@@ -63,7 +63,7 @@ public class Dados {
     public static List<Veiculo> listaVeiculo(Integer idCliente) {
         List<Veiculo> veiculoEncontrado = new ArrayList<>();
         for (Veiculo v : listaVeiculo) {
-            if (v.getIdCliente().getId() == idCliente) {
+            if (v.getCliente().getId() == idCliente) {
                 veiculoEncontrado.add(v);
             }
         }
@@ -71,15 +71,15 @@ public class Dados {
     }
     
     public static void adicionaVeiculo(Veiculo veiculo, Cliente cliente){
-        veiculo.setIdVeiculo(listaVeiculo.size()+1);
-        veiculo.setIdCliente(cliente);
+        veiculo.setId(listaVeiculo.size()+1);
+        veiculo.setCliente(cliente);
         listaVeiculo.add(veiculo);
     }
     
     public static Veiculo obtemVeiculo(Integer id){
         Veiculo veiculoEncontrado = new Veiculo();
         for (Veiculo v : listaVeiculo){
-            if (v.getIdVeiculo() == id){
+            if (v.getId() == id){
                 veiculoEncontrado = v;
             }
         }
@@ -88,7 +88,7 @@ public class Dados {
     
     public static void excluirVeiculo(Integer id){
         for (Veiculo v : listaVeiculo){
-            if(v.getIdVeiculo() == id){
+            if(v.getId() == id){
             listaVeiculo.remove(v);
             break;
             }
@@ -102,7 +102,7 @@ public class Dados {
     public static List<OrdemServico> listaOs(Integer idVeiculo) {
         List<OrdemServico> osEncontrada = new ArrayList<>();
         for (OrdemServico o : listaOs) {
-            if (o.getVelId().getIdVeiculo() == idVeiculo) {
+            if (o.getVeiculo().getId() == idVeiculo) {
                 osEncontrada.add(o);
             }
         }
@@ -110,15 +110,15 @@ public class Dados {
     }
     
     public static void adicionaOs(OrdemServico os, Veiculo veiculo){
-        os.setIdOs(listaOs.size()+1);
-        os.setVelId(veiculo);
+        os.setId(listaOs.size()+1);
+        os.setVeiculo(veiculo);
         listaOs.add(os);
     }
     
     public static OrdemServico obtemOs(Integer id){
         OrdemServico osEncontrado = new OrdemServico();
         for (OrdemServico o : listaOs){
-            if (o.getIdOs() == id){
+            if (o.getId() == id){
                 osEncontrado = o;
             }
         }
@@ -127,7 +127,7 @@ public class Dados {
     
     public static void excluirOs(Integer id){
         for (OrdemServico o : listaOs){
-            if(o.getIdOs() == id){
+            if(o.getId() == id){
             listaOs.remove(o);
             break;
             }
@@ -141,7 +141,7 @@ public class Dados {
     public static List<Pecas> listaPeca(Integer idOrcamento) {
         List<Pecas> pecaEncontrada = new ArrayList<>();
         for (Pecas p : listaPeca) {
-            if (p.getOrdemServicoId().getIdOs() == idOrcamento) {
+            if (p.getOrdemServico().getId() == idOrcamento) {
                 pecaEncontrada.add(p);
             }
         }
@@ -156,8 +156,8 @@ public class Dados {
         
         total = (((vlUnt*porc)/100)+vlUnt)*qnt;
         
-        peca.setIdPeca(listaPeca.size()+1);
-        peca.setOrdemServicoId(os);
+        peca.setId(listaPeca.size()+1);
+        peca.setOrdemServico(os);
         peca.setValorTotal(total);
         
         listaPeca.add(peca);
@@ -166,7 +166,7 @@ public class Dados {
     public static Pecas obtemPeca(Integer id){
         Pecas pecaEncontrada = new Pecas();
         for(Pecas p : listaPeca){
-            if(p.getIdPeca() == id){
+            if(p.getId() == id){
                 pecaEncontrada = p;
             }
         }
@@ -175,7 +175,7 @@ public class Dados {
     
     public static void excluirPeca(Integer id){
         for (Pecas p : listaPeca){
-            if(p.getIdPeca() == id){
+            if(p.getId() == id){
                 listaPeca.remove(p);
                 break;
             }

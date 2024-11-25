@@ -55,7 +55,7 @@ public class controllerVeiculo {
         veiculoEncontrado = Dados.obtemVeiculo(idVel);
         Cliente idCli = new Cliente();
       
-        idCli = Dados.obtemCliente(veiculoEncontrado.getIdCliente().getId());
+        idCli = Dados.obtemCliente(veiculoEncontrado.getCliente().getId());
         
         model.addAttribute("veiculo", Dados.obtemVeiculo(idVel));
         model.addAttribute("cliente", Dados.obtemCliente(idCli.getId()));
