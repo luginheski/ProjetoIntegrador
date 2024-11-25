@@ -39,8 +39,9 @@ public class controllerVeiculo {
     
     @PostMapping("/guardarVeiculo")
     public String processarVeiculo(Model model, @ModelAttribute Veiculo veiculo, @ModelAttribute Cliente cliente, @RequestParam String id){
+        String idSt = id.replace(",", "");
         veiculoService.criarVeiculo(veiculo, cliente);
-        return "redirect:/inserirVeiculo?id="+id;
+        return "redirect:/inserirVeiculo?id="+idSt;
     }
     
     @GetMapping("/listarVeiculo")

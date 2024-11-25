@@ -43,8 +43,8 @@ public class controllerOrcamento {
     @PostMapping("/guardarOs")
     public String processarOs(Model model, @ModelAttribute Veiculo veiculo, @ModelAttribute OrdemServico os, @RequestParam String id){
         osService.criarOs(veiculo, os);
-        //Dados.adicionaOs(os, veiculo);
-        return "redirect:/incluirOrcamento?id="+id;
+        String idSt = id.replace(",", "");
+        return "redirect:/incluirOrcamento?id="+idSt;
     }
       
     @GetMapping("/listarOs")
