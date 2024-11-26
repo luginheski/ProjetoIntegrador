@@ -58,6 +58,6 @@ public class controllerOrcamento {
         Integer idOs = Integer.parseInt(id);
         osService.excluir(idOs);
         //Dados.excluirOs(idOs);
-        return "redirect:/inserirCliente";
+        return "redirect:/incluirOrcamento?id="+id;
     }
 }

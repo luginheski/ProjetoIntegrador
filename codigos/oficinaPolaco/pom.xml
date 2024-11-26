@@ -13,6 +13,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>oficinaPolaco</name>
 	<description>Demo project for Spring Boot</description>
+        <!-- <packaging>war</packaging> --> 
 	<url/>
 	<licenses>
 		<license/>
@@ -68,6 +69,7 @@
 	</dependencies>
 
 	<build>
+            <!-- <finalName>${artifactId}</finalName>  --> 
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

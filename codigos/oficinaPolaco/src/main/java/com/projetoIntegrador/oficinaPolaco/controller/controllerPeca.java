@@ -43,8 +43,9 @@ public class controllerPeca {
     @PostMapping("/guardarPeca")
     public String processarOs(Model model,@ModelAttribute OrdemServico os, @ModelAttribute Pecas peca, @RequestParam String id){
         pcService.criarPeca(peca, os);
-        //Dados.adicionaPeca(peca, os);
-        return "redirect:/incluirPeca?id="+id;
+        String idOs = id.replace(",", "");
+        return "redirect:/incluirPeca?id="+idOs;
+        
     }
     
     @GetMapping("/listarPeca")

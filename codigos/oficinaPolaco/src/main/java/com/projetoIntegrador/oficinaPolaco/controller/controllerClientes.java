@@ -53,4 +53,11 @@ public class controllerClientes {
         //Dados.excluirCliente(idCliente);
         return "redirect:/inserirCliente";
     }
+    
+    @GetMapping("/alterar-cliente")
+    public String AlterarCliente(Model model, @RequestParam String id, @ModelAttribute Cliente cliente) {
+        Integer idCliente = Integer.valueOf(id);
+        model.addAttribute("cliente", clienteService.buscarId(idCliente));
+        return "index";
+    }
 }
