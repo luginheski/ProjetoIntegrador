@@ -10,6 +10,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+/**
+ *
+ * @author rodrigo.luginheski
+ */
 @Controller
 public class controllerClientes {
     
@@ -48,7 +52,7 @@ public class controllerClientes {
            
     @GetMapping("/excluir-cliente")
     public String excluirCliente(Model model, @RequestParam String id) {
-        Integer idCliente = Integer.parseInt(id);
+        Integer idCliente = Integer.valueOf(id);
         clienteService.excluir(idCliente);
         //Dados.excluirCliente(idCliente);
         return "redirect:/inserirCliente";

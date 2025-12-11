@@ -2,13 +2,14 @@ package com.projetoIntegrador.oficinaPolaco.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Dados {
 
-    private static List<Cliente> listaCliente = new ArrayList();
-    private static List<Veiculo> listaVeiculo = new ArrayList();
-    private static List<OrdemServico> listaOs = new ArrayList();
-    private static List<Pecas> listaPeca = new ArrayList();
+    private static final List<Cliente> listaCliente = new ArrayList();
+    private static final List<Veiculo> listaVeiculo = new ArrayList();
+    private static final List<OrdemServico> listaOs = new ArrayList();
+    private static final List<Pecas> listaPeca = new ArrayList();
 
     public static void adicionarCliente(Cliente cliente) {
         cliente.setId(listaCliente.size() + 1);
@@ -21,7 +22,7 @@ public class Dados {
     
     public static void excluirCliente(Integer id) {
         for (Cliente c : listaCliente) {
-            if (c.getId() == id) {
+            if (Objects.equals(c.getId(), id)) {
                 listaCliente.remove(c);
                 break;
             }
@@ -30,7 +31,7 @@ public class Dados {
    
     public static void atualizarCliente(Cliente cliente) {
         for (Cliente c : listaCliente) {
-            if (c.getId() == cliente.getId()) {
+            if (Objects.equals(c.getId(), cliente.getId())) {
                 c.setNome(cliente.getNome());
                 c.setRg(cliente.getRg());
                 c.setCpf(cliente.getCpf());
@@ -47,7 +48,7 @@ public class Dados {
     public static Cliente obtemCliente(Integer id) {
         Cliente clienteEncontrado = new Cliente();
         for (Cliente c : listaCliente) {
-            if (c.getId() == id) {
+            if (Objects.equals(c.getId(), id)) {
                 clienteEncontrado = c;
                 break;
             }
@@ -63,7 +64,7 @@ public class Dados {
     public static List<Veiculo> listaVeiculo(Integer idCliente) {
         List<Veiculo> veiculoEncontrado = new ArrayList<>();
         for (Veiculo v : listaVeiculo) {
-            if (v.getCliente().getId() == idCliente) {
+            if (Objects.equals(v.getCliente().getId(), idCliente)) {
                 veiculoEncontrado.add(v);
             }
         }
@@ -79,7 +80,7 @@ public class Dados {
     public static Veiculo obtemVeiculo(Integer id){
         Veiculo veiculoEncontrado = new Veiculo();
         for (Veiculo v : listaVeiculo){
-            if (v.getId() == id){
+            if (Objects.equals(v.getId(), id)){
                 veiculoEncontrado = v;
             }
         }
@@ -88,7 +89,7 @@ public class Dados {
     
     public static void excluirVeiculo(Integer id){
         for (Veiculo v : listaVeiculo){
-            if(v.getId() == id){
+            if(Objects.equals(v.getId(), id)){
             listaVeiculo.remove(v);
             break;
             }
@@ -102,7 +103,7 @@ public class Dados {
     public static List<OrdemServico> listaOs(Integer idVeiculo) {
         List<OrdemServico> osEncontrada = new ArrayList<>();
         for (OrdemServico o : listaOs) {
-            if (o.getVeiculo().getId() == idVeiculo) {
+            if (Objects.equals(o.getVeiculo().getId(), idVeiculo)) {
                 osEncontrada.add(o);
             }
         }
@@ -118,7 +119,7 @@ public class Dados {
     public static OrdemServico obtemOs(Integer id){
         OrdemServico osEncontrado = new OrdemServico();
         for (OrdemServico o : listaOs){
-            if (o.getId() == id){
+            if (Objects.equals(o.getId(), id)){
                 osEncontrado = o;
             }
         }
@@ -127,7 +128,7 @@ public class Dados {
     
     public static void excluirOs(Integer id){
         for (OrdemServico o : listaOs){
-            if(o.getId() == id){
+            if(Objects.equals(o.getId(), id)){
             listaOs.remove(o);
             break;
             }
@@ -141,7 +142,7 @@ public class Dados {
     public static List<Pecas> listaPeca(Integer idOrcamento) {
         List<Pecas> pecaEncontrada = new ArrayList<>();
         for (Pecas p : listaPeca) {
-            if (p.getOrdemServico().getId() == idOrcamento) {
+            if (Objects.equals(p.getOrdemServico().getId(), idOrcamento)) {
                 pecaEncontrada.add(p);
             }
         }
@@ -166,7 +167,7 @@ public class Dados {
     public static Pecas obtemPeca(Integer id){
         Pecas pecaEncontrada = new Pecas();
         for(Pecas p : listaPeca){
-            if(p.getId() == id){
+            if(Objects.equals(p.getId(), id)){
                 pecaEncontrada = p;
             }
         }
@@ -175,7 +176,7 @@ public class Dados {
     
     public static void excluirPeca(Integer id){
         for (Pecas p : listaPeca){
-            if(p.getId() == id){
+            if(Objects.equals(p.getId(), id)){
                 listaPeca.remove(p);
                 break;
             }
