@@ -6,10 +6,10 @@ import java.util.Objects;
 
 public class Dados {
 
-    private static final List<Cliente> listaCliente = new ArrayList();
-    private static final List<Veiculo> listaVeiculo = new ArrayList();
-    private static final List<OrdemServico> listaOs = new ArrayList();
-    private static final List<Pecas> listaPeca = new ArrayList();
+    private static List<Cliente> listaCliente = new ArrayList();
+    private static List<Veiculo> listaVeiculo = new ArrayList();
+    private static List<OrdemServico> listaOs = new ArrayList();
+    private static List<Pecas> listaPeca = new ArrayList();
 
     public static void adicionarCliente(Cliente cliente) {
         cliente.setId(listaCliente.size() + 1);
